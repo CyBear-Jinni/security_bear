@@ -591,10 +591,10 @@
     </state>
     <state x="2426" y="169" key="#xdebugger.evaluate/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593556886204" />
     <state x="777" y="169" key="#xdebugger.evaluate/50.0.1870.1080@50.0.1870.1080" timestamp="1598707586032" />
-    <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600729945323">
+    <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2" timestamp="1600731537165">
       <screen x="0" y="15" width="1680" height="1050" />
     </state>
-    <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600729945323" />
+    <state x="0" y="15" width="1680" height="1050" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600731537165" />
     <state x="1722" y="0" width="1878" height="1080" key="CommitChangelistDialog2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600720429750" />
     <state x="2146" y="60" width="1034" height="984" key="CommitChangelistDialog2/1680.0.1920.1080/0.27.1680.1023@1680.0.1920.1080" timestamp="1592226188839" />
     <state x="50" y="0" width="1870" height="1080" key="CommitChangelistDialog2/50.0.1870.1080@50.0.1870.1080" timestamp="1600192445906" />
@@ -675,6 +675,10 @@
     </state>
     <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1593255864532" />
     <state x="519" y="163" key="SettingsEditor/50.0.1870.1080@50.0.1870.1080" timestamp="1595545967830" />
+    <state x="594" y="166" key="VCS.ChangeListViewerDialog" timestamp="1600731530348">
+      <screen x="0" y="15" width="1680" height="1050" />
+    </state>
+    <state x="594" y="166" key="VCS.ChangeListViewerDialog/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600731530348" />
     <state x="729" y="436" key="VCS.ChangelistChooser" timestamp="1599740299219">
       <screen x="50" y="0" width="1870" height="1080" />
     </state>
@@ -702,9 +706,10 @@
     </state>
     <state x="529" y="157" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600532233672" />
     <state x="639" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/50.0.1870.1080@50.0.1870.1080" timestamp="1598717442975" />
-    <state x="2425" y="443" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600686208456">
-      <screen x="1680" y="0" width="1920" height="1080" />
+    <state x="652" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600731527293">
+      <screen x="0" y="15" width="1680" height="1050" />
     </state>
+    <state x="652" y="446" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1680.0.1920.1080/0.15.1680.1050@0.15.1680.1050" timestamp="1600731527293" />
     <state x="2425" y="443" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1600686208456" />
     <state x="776" y="443" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/50.0.1870.1080@50.0.1870.1080" timestamp="1599869984103" />
     <state x="2196" y="185" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1593593160791">
