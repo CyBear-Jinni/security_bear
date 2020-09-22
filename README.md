@@ -1,4 +1,4 @@
-# CyBear Jinni Network Manager
+# Security Bear 
 
 # This project is not working at the moment
 
