@@ -1,6 +1,6 @@
-import 'network_actions.dart';
+import 'package:SecurityBearDart/network_actions.dart';
 
-// This class is where all the program start after the main file
+/// This class is where all the program start after the main file
 class Director {
   String snapPath;
 
@@ -10,18 +10,16 @@ class Director {
 
 
   Future NetworkActionsMainAsync() async {
-
     print('next');
 
     createServer();
     connectToDatabase();
 
     await ManegeNetworkConnection();
-
-
   }
 
-  //  This function starts the object to manege the state of the device network connection
+  ///  This function starts the object
+  ///  to manege the state of the device network connection
   Future ManegeNetworkConnection() async {
     NetworkActions networkActions = NetworkActions(
         'AndroidAP_6194', '7f1ee6787744', 'WiFi-ssid', 'WiFi-password');
@@ -29,9 +27,9 @@ class Director {
     await networkActions.connectToAdminWhenExist();
   }
 
-  // This function connect to the data base
+  /// This function connect to the data base
   void connectToDatabase() {}
 
-  //  This function will create the server in case there is connection
+  ///  This function will create the server in case there is connection
   void createServer() {}
 }

@@ -22,7 +22,7 @@ parts:
     override-build: |
       scripts/bashScripts/nativeExecutableMaker.sh  # Downloading dart-sdk for the correct architecture
 
-      rm -r NetworkManagerDart
+      rm -r SecurityBearDart
 
       snapcraftctl build
       #sudo apt install network-manager
