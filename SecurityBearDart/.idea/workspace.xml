@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.directory" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/.directory" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetworkManagerDart.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/NetworkManagerDart.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/analysis_options.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/bin/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data_base/data_base_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/lib/data_base/data_base_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/director.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/lib/director.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/lib/network_actions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server/connector_with_device.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/lib/server/connector_with_device.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/network_manager_dart_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../SecurityBearDart/test/network_manager_dart_test.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jVVZ6Imb0sXjXrv59OA0UJSf0f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="" />
+      <created>1603889298541</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603889298541</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2162" y="163" key="SettingsEditor" timestamp="1603889361665">
+      <screen x="1680" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1603889361665" />
+  </component>
+</project>
