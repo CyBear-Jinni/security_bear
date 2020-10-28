@@ -25,7 +25,6 @@ parts:
       rm -r SecurityBearDart
 
       snapcraftctl build
-      #sudo apt install network-manager
 
     build-packages:
       - wget
@@ -77,5 +76,5 @@ parts:
 apps:
   network-manager-dart:
     command: main.exe $SNAP
-    #daemon: simple
+    daemon: simple
     plugs: [network, network-bind, hardware-observe]
