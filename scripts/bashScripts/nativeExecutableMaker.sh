@@ -6,15 +6,15 @@ scripts/bashScripts/dartSdkDownload.sh  # Downloading dart-sdk for the correct a
 
 unzip dartsdk-*.zip
 
-cd NetworkManagerDart
+cd SecurityBearDart
 sudo ../dart-sdk/bin/pub get --no-precompile
 #sudo ../dart-sdk/bin/pub run build_runner build --delete-conflicting-outputs
 cd ..
 
 #chmod -R +rx dart-sdk/
-dart-sdk/bin/dart2native NetworkManagerDart/bin/main.dart
+dart-sdk/bin/dart2native SecurityBearDart/bin/main.dart
 
-mv NetworkManagerDart/bin/main.exe .
+mv SecurityBearDart/bin/main.exe .
 
 
 rm dartsdk-*.zip
