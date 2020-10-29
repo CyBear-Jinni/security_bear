@@ -1,14 +1,14 @@
-import 'package:SecurityBearDart/director.dart';
+import 'package:SecurityBearDart/core/shared_variables.dart';
+import 'package:SecurityBearDart/features/security_bear/application/usecases/core_u/security_bear_manager.dart';
 
 main(List<String> arguments) async {
-  print("helllow");
+  print('Welcome to Security Bear');
 
-  String snapPath;
-
-  if (arguments.length < 1) {
-    snapPath = '.';
+  if (arguments.isEmpty) {
+    SharedVariables('.');
   } else {
-    snapPath = arguments[0];
+    SharedVariables(arguments[0]);
   }
-  Director director = Director(snapPath);
+
+  SecurityBearManagerU();
 }
