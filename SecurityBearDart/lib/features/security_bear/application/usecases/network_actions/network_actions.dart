@@ -6,20 +6,25 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 ///  Network action class used for
 ///  controlling the program in the different network status
 class NetworkActions {
-  String adminWifiName;
-  String adminWifiPass;
-  String wifiName;
-  String wifiPassword;
+  static String adminWiFiName;
+  static String adminWiFiPass;
+  static String wiFiName;
+  static String wiFiPassword;
 
-  NetworkActions(
-      this.adminWifiName, this.adminWifiPass, this.wifiName, this.wifiPassword);
+  NetworkActions(String adminWiFiNameF, String adminWiFiPassF, String wiFiNameF,
+      String wiFiPasswordF) {
+    adminWiFiName = adminWiFiNameF;
+    adminWiFiPass = adminWiFiPassF;
+    wiFiName = wiFiNameF;
+    wiFiPassword = wiFiPasswordF;
+  }
 
-  ///  This function starts the connection to the requested wi-fi
+  ///  This function starts the connection to the requested WiFi
   ///  if the internet connection is down
   Future<bool> isConnectedToTheInternet() async {
     print('Status is ' + (await isConnectedToInternet()).toString());
     bool processLocation = false;
-    //  true = Started the process to connect to the admin wi-fi,
+    //  true = Started the process to connect to the admin WiFi,
     //  false = waiting for the internet to go down
 
     Stream<DataConnectionStatus> listener = returnStatusIfChanged();
@@ -56,22 +61,25 @@ class NetworkActions {
     String connectedWifiName;
     while (true) {
       connectedWifiName = await getConnectedNetworkName();
-      if (connectedWifiName != adminWifiName &&
-          (await getAvailableNetworksList()).contains(adminWifiName)) {
+      if (connectedWifiName != adminWiFiName &&
+          (await getAvailableNetworksList()).contains(adminWiFiName)) {
         print('Connecting to admin wi-fi');
-        await connectToAdminWiFi(ssid: adminWifiName, pass: adminWifiPass);
+        await connectToAdminWiFi(ssid: adminWiFiName, pass: adminWiFiPass);
       }
-      // If the device is not connected to any Wi-Fi
+      // If the device is not connected to any WiFi
       // will try reconnecting to the last network
-      else if (connectedWifiName == null || connectedWifiName == '') {
-        await connectToWiFi(wifiName, wifiPassword);
+      else if (connectedWifiName == null ||
+          connectedWifiName == '' ||
+          connectedWifiName != wiFiName &&
+              (await getAvailableNetworksList()).contains(wiFiName)) {
+        await connectToWiFi(wiFiName, wiFiPassword);
       }
       await Future.delayed(
           const Duration(seconds: 15)); // Wait to check if internet is back
     }
   }
 
-  ///  This function check if there is Wi-Fi with the name that it got,
+  ///  This function check if there is WiFi with the name that it got,
   ///  if true it will try to connect to it with the password that it got
   Future<void> connectToAdminWiFi(
       {String ssid = 'ho', String pass = '123'}) async {
@@ -118,7 +126,7 @@ class NetworkActions {
     });
   }
 
-  ///  Connect to the wi-fi
+  ///  Connect to the WiFi
   Future<String> connectToWiFi(String ssid, String pass) async {
 //    Not Working with snap from apt
     return await Process.run('nmcli',
