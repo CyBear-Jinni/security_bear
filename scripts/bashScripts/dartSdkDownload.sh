@@ -1,8 +1,8 @@
 #!/bin/bash
 
-architecture="$(uname -p)"
+architecture="$(uname -m)"
 
-dartSdkPath="https://storage.googleapis.com/dart-archive/channels/stable/release/2.7.2/sdk/dartsdk-linux-"	# Sdk url: https://dart.dev/tools/sdk/archive
+dartSdkPath="https://storage.googleapis.com/dart-archive/channels/stable/release/2.10.2/sdk/dartsdk-linux-"	# Sdk url: https://dart.dev/tools/sdk/archive
 
 case ${architecture} in
 	( "arm" | "armv7l" )
