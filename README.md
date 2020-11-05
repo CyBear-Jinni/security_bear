@@ -10,7 +10,7 @@
 
 # Welcome!
 
-The softwer is writen in [dart](https://dart.dev) and in charge of allowing easy and secure way to connect to your computer for maintenance.
+The software is written in [dart](https://dart.dev) and in charge of allowing easy and secure way to connect to your computer for maintenance.
 
 The use of the software requires [CyBear Jinni App](https://github.com/CyBear-Jinni/CBJ_App) and is part of [CyBear Jinni Smart Home](https://github.com/CyBear-Jinni/CBJ_Smart-Home) system.
 
