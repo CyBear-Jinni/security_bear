@@ -418,7 +418,7 @@
         <entry key="process_run">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/process_run-0.11.2+5/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/process_run-0.11.2+6/lib" />
             </list>
           </value>
         </entry>
@@ -687,7 +687,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/path-1.8.0-nullsafety.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/pedantic-1.10.0-nullsafety.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/pool-1.5.0-nullsafety.3/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/process_run-0.11.2+5/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/process_run-0.11.2+6/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/protobuf-1.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/pub_semver-1.4.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-0.1.5/lib" />
