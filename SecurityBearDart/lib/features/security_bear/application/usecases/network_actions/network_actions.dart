@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:SecurityBearDart/data_base/cbj_app/cbj_app_client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
@@ -77,12 +78,11 @@ class NetworkActions {
       }
       else if (connectedWifiName == adminWiFiName){
         String myDeviceIP = await getCurrentDeviceIP();
-        String wiFiDeafultGateway = await getDefaultGateway();
+        String wiFiDeafultGateway = await getDefaultGateway(currentIP: myDeviceIP);
 
 
         bool successful = await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
-        await Future.delayed(
-            const Duration(seconds: 10)); // Wait to check if internet is back
+
       }
       await Future.delayed(
           const Duration(seconds: 15)); // Wait to check if internet is back
@@ -177,48 +177,76 @@ class NetworkActions {
       return results.stdout.toString().replaceAll('\n', '');
     });
 
-    // For now return last valid ip if there are more that one.
+    // TODO: For now return random ip if there are more that one, we need to
+    // TODO: a way to find the hotspot IP.
     if(currentIP.isNotEmpty && currentIP.contains(' ')){
       List<String> currentIPList = currentIP.split(' ');
-      for(String lastIP in currentIPList.reversed){
-        if(lastIP.isNotEmpty){
-          print('Device IP is: ' + lastIP);
+      currentIPList.removeWhere((String element) => element == '');
+      currentIP = currentIPList[Random().nextInt(currentIPList.length)];
 
-          return lastIP;
-        }
-      }
     }
-    print('Device IP is: ' + currentIP);
+    print('Device IP is: ' + currentIP!= null ? currentIP: 'NULL');
     return currentIP;
   }
 
   /// Getting the default gateway of connected network
-  Future<String> getDefaultGateway() async {
+  Future<String> getDefaultGateway({String currentIP}) async {
     String defaultGateway = await Process.run('ip',
         <String>['route']).then((ProcessResult results) {
-      List<String> gatewayTemp = results.stdout.toString().split('\n');
-      String gateway;
-      for(String line in gatewayTemp) {
-        if(line.contains('default')){
-          gateway = line;
-          break;
-        }
-      }
-      return gateway;
+      return results.stdout.toString();
     });
+
+
+    List<String> gatewayLinesWithDefault = [];
+
+    List<String> gatewayTemp = defaultGateway.split('\n');
+    gatewayTemp.removeWhere((String element) => element == '');
+
+    if(gatewayTemp.isEmpty){
+      return null;
+    }
+
+    for(String gatewayLine in gatewayTemp){
+      if(gatewayLine.contains('default')){
+        gatewayLinesWithDefault.add(gatewayLine);
+      }
+    }
+
+    String gateway;
+    if(gatewayLinesWithDefault.length > 1){
+      if(currentIP.isNotEmpty){
+        final String currentIPWithoutLastNumber = currentIP.substring(0, currentIP.lastIndexOf('.'));
+        for(final String gatewayLine in gatewayLinesWithDefault){
+          if(gatewayLine.contains(currentIPWithoutLastNumber)){
+            return extractIpFromLine(gatewayLine);
+          }
+        }
+        return gateway;
+      }
+      gatewayLineWithDefault = gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
+    }
+    else {
+      defaultGateway = gatewayLinesWithDefault[0];
+    }
+
+
     if(defaultGateway.isEmpty) {
       return null;
     }
 
-      final RegExp firstNumberRegExp = RegExp('[0-9]+');
-      int ipIndex = defaultGateway.indexOf(firstNumberRegExp);
-      if(ipIndex < 0){
-       return null;
-      }
-      defaultGateway = defaultGateway.substring(ipIndex);
-      defaultGateway = defaultGateway.substring(0 ,defaultGateway.indexOf(' '));
-
-    return defaultGateway;
+    return extractIpFromLine(defaultGateway);
   }
 
+  /// Getting string with IP and returning only the IP
+  String extractIpFromLine(String iPWithLine){
+    final RegExp firstNumberRegExp = RegExp('[0-9]+');
+    final int ipIndex = iPWithLine.indexOf(firstNumberRegExp);
+    if(ipIndex < 0){
+      return null;
+    }
+
+    String ip = iPWithLine.substring(ipIndex);
+    ip = ip.substring(0, ip.indexOf(' '));
+    return ip;
+  }
 }

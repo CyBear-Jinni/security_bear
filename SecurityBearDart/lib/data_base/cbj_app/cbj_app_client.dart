@@ -13,9 +13,6 @@ class CBJAppClient {
 
     SmartDeviceInfo smartDeviceInfo = SmartDeviceInfo()..smartDeviceIP = myDeviceIP;
 
-
-
-
     try {
       responseSBCommendStatus = await stub.cBJAppGetSmartDeviceInformation(smartDeviceInfo);
 
