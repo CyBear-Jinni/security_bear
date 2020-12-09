@@ -25,10 +25,7 @@
     <list default="true" id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,22 +88,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1818" height="279" key="GridCell.Tab.0.bottom" timestamp="1607473513797">
+    <state width="1818" height="279" key="GridCell.Tab.0.bottom" timestamp="1607518321979">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1607473513797" />
-    <state width="1818" height="279" key="GridCell.Tab.0.center" timestamp="1607473513797">
+    <state width="1818" height="279" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1607518321979" />
+    <state width="1818" height="279" key="GridCell.Tab.0.center" timestamp="1607518321979">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1607473513797" />
-    <state width="1818" height="279" key="GridCell.Tab.0.left" timestamp="1607473513796">
+    <state width="1818" height="279" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1607518321979" />
+    <state width="1818" height="279" key="GridCell.Tab.0.left" timestamp="1607518321979">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1607473513796" />
-    <state width="1818" height="279" key="GridCell.Tab.0.right" timestamp="1607473513797">
+    <state width="1818" height="279" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1607518321979" />
+    <state width="1818" height="279" key="GridCell.Tab.0.right" timestamp="1607518321979">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1607473513797" />
+    <state width="1818" height="279" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1607518321979" />
     <state x="657" y="160" key="RollbackChangesDialog" timestamp="1606864957394">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
@@ -116,9 +113,31 @@
     </state>
     <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1603889361665" />
     <state x="524" y="163" key="SettingsEditor/56.0.1864.1080@56.0.1864.1080" timestamp="1607473260001" />
-    <state x="693" y="263" width="590" height="554" key="find.popup" timestamp="1607473436121">
+    <state x="781" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607514282700">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state x="693" y="263" width="590" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1607473436121" />
+    <state x="781" y="452" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/56.0.1864.1080@56.0.1864.1080" timestamp="1607514282700" />
+    <state x="693" y="263" width="590" height="554" key="find.popup" timestamp="1607510482985">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="693" y="263" width="590" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1607510482985" />
+    <state x="651" y="237" width="672" height="678" key="search.everywhere.popup" timestamp="1607510457957">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="651" y="237" width="672" height="678" key="search.everywhere.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1607510457957" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart</url>
+          <line>184</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SecurityBearDart$main_dart.json" NAME="main.dart Coverage Results" MODIFIED="1607508786255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="DartCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" CONTEXT_FILE_PATH="$PROJECT_DIR$/bin/main.dart" />
   </component>
 </project>

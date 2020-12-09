@@ -77,9 +77,9 @@ class NetworkActions {
         await connectToWiFi(wiFiName, wiFiPassword);
       }
       else if (connectedWifiName == adminWiFiName){
-        String myDeviceIP = await getCurrentDeviceIP();
-        String wiFiDeafultGateway = await getDefaultGateway(currentIP: myDeviceIP);
+        String wiFiDeafultGateway = await getDefaultGateway();
 
+        String myDeviceIP = await getCurrentDeviceIP(currentDefaultGateWay: wiFiDeafultGateway);
 
         bool successful = await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
 
@@ -171,19 +171,31 @@ class NetworkActions {
   }
 
   /// Getting the current device ip
-  Future<String> getCurrentDeviceIP() async {
+  Future<String> getCurrentDeviceIP({String currentDefaultGateWay}) async {
     String currentIP = await Process.run('hostname',
         <String>['-I']).then((ProcessResult results) {
       return results.stdout.toString().replaceAll('\n', '');
     });
 
-    // TODO: For now return random ip if there are more that one, we need to
-    // TODO: a way to find the hotspot IP.
+
     if(currentIP.isNotEmpty && currentIP.contains(' ')){
       List<String> currentIPList = currentIP.split(' ');
       currentIPList.removeWhere((String element) => element == '');
-      currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+      
+      if(currentDefaultGateWay.isNotEmpty){
+        String currentDefaultGateWayWithoutLastNumbers = ipWithoutLastNumbers(currentDefaultGateWay);
 
+        for (String ipFromScan in currentIPList){
+          String ipFromScanWithoutLastNumbers = ipWithoutLastNumbers(ipFromScan);
+
+          if(ipFromScanWithoutLastNumbers == currentDefaultGateWayWithoutLastNumbers){
+            return ipFromScan;
+          }
+        }
+      }
+      else {
+        currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+      }
     }
     print('Device IP is: ' + currentIP!= null ? currentIP: 'NULL');
     return currentIP;
@@ -215,8 +227,8 @@ class NetworkActions {
     String gateway;
     if(gatewayLinesWithDefault.length > 1){
       if(currentIP.isNotEmpty){
-        final String currentIPWithoutLastNumber = currentIP.substring(0, currentIP.lastIndexOf('.'));
         for(final String gatewayLine in gatewayLinesWithDefault){
+          final String currentIPWithoutLastNumber = ipWithoutLastNumbers(currentIP);
           if(gatewayLine.contains(currentIPWithoutLastNumber)){
             return extractIpFromLine(gatewayLine);
           }
@@ -248,5 +260,10 @@ class NetworkActions {
     String ip = iPWithLine.substring(ipIndex);
     ip = ip.substring(0, ip.indexOf(' '));
     return ip;
+  }
+  
+  /// Retrieving the ip without the number after the last dot
+  String ipWithoutLastNumbers(String ip){
+    return ip.substring(0, ip.lastIndexOf('.'));
   }
 }
