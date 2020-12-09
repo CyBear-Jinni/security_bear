@@ -1,6 +1,6 @@
-import 'package:SecurityBearDart/core/helper_methods.dart';
-import 'package:SecurityBearDart/features/security_bear/application/usecases/network_actions/network_actions.dart';
-import 'package:SecurityBearDart/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart';
+import 'package:security_bear_dart/core/helper_methods.dart';
+import 'package:security_bear_dart/features/security_bear/application/usecases/network_actions/network_actions.dart';
+import 'package:security_bear_dart/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart';
 import 'package:grpc/grpc.dart';
 
 /// This class is where all the program start after the main file
@@ -22,7 +22,7 @@ class SecurityBearManagerU {
   ///  to manege the state of the device network connection
   Future<void> manegeNetworkConnection() async {
     NetworkActions networkActions = NetworkActions(
-        'AndroidAP_6194', '7f1ee6787744', 'WiFi-ssid', 'WiFi-password');
+        'CyBear Jinni', 'CyBear Jinni', 'CyBear_Jinni', 'CyBear_Jinni');
 
     await networkActions.connectToAdminWhenExist();
   }

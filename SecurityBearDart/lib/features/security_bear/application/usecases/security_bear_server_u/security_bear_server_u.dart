@@ -1,5 +1,5 @@
-import 'package:SecurityBearDart/features/security_bear/application/usecases/network_actions/network_actions.dart';
-import 'package:SecurityBearDart/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:security_bear_dart/features/security_bear/application/usecases/network_actions/network_actions.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 import 'package:grpc/src/server/call.dart';
 
 class SecurityBearServerU extends SecurityBearServiceBase {
