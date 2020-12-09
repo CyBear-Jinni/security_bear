@@ -22,7 +22,7 @@ class SecurityBearManagerU {
   ///  to manege the state of the device network connection
   Future<void> manegeNetworkConnection() async {
     NetworkActions networkActions = NetworkActions(
-        'AndroidAP_6194', '7f1ee6787744', 'WiFi-ssid', 'WiFi-password');
+        'CyBear Jinni', 'CyBear Jinni', 'CyBear_Jinni', 'CyBear_Jinni');
 
     await networkActions.connectToAdminWhenExist();
   }
