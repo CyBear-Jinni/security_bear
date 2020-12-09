@@ -68,14 +68,6 @@ class NetworkActions {
         print('Connecting to admin wi-fi');
         await connectToAdminWiFi(ssid: adminWiFiName, pass: adminWiFiPass);
       }
-      // If the device is not connected to any WiFi
-      // will try reconnecting to the last network
-      else if (connectedWifiName == null ||
-          connectedWifiName == '' ||
-          connectedWifiName != wiFiName &&
-              (await getAvailableNetworksList()).contains(wiFiName)) {
-        await connectToWiFi(wiFiName, wiFiPassword);
-      }
       else if (connectedWifiName == adminWiFiName){
         String wiFiDeafultGateway = await getDefaultGateway();
 
@@ -83,6 +75,14 @@ class NetworkActions {
 
         bool successful = await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
 
+      }
+      // If the device is not connected to any WiFi
+      // will try reconnecting to the last network
+      else if (connectedWifiName == null ||
+          connectedWifiName == '' ||
+          connectedWifiName != wiFiName &&
+              (await getAvailableNetworksList()).contains(wiFiName)) {
+        await connectToWiFi(wiFiName, wiFiPassword);
       }
       await Future.delayed(
           const Duration(seconds: 15)); // Wait to check if internet is back
@@ -226,7 +226,7 @@ class NetworkActions {
 
     String gateway;
     if(gatewayLinesWithDefault.length > 1){
-      if(currentIP.isNotEmpty){
+      if(currentIP != null){
         for(final String gatewayLine in gatewayLinesWithDefault){
           final String currentIPWithoutLastNumber = ipWithoutLastNumbers(currentIP);
           if(gatewayLine.contains(currentIPWithoutLastNumber)){

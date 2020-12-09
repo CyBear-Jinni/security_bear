@@ -21,7 +21,7 @@ class SecurityBearManagerU {
   ///  This function starts the object
   ///  to manege the state of the device network connection
   Future<void> manegeNetworkConnection() async {
-    NetworkActions networkActions = NetworkActions(
+    final NetworkActions networkActions = NetworkActions(
         'CyBear Jinni', 'CyBear Jinni', 'CyBear_Jinni', 'CyBear_Jinni');
 
     await networkActions.connectToAdminWhenExist();
