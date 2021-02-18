@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: security_bear_connections.proto
 //
-// @dart = 2.3
+// @dart = 2.7
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -17,7 +17,19 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
   ;
 
   SecurityBearSetup._() : super();
-  factory SecurityBearSetup() => create();
+  factory SecurityBearSetup({
+    WiFiInformation wiFiFirstPriority,
+    WiFiInformation wiFiSecondPriority,
+  }) {
+    final _result = create();
+    if (wiFiFirstPriority != null) {
+      _result.wiFiFirstPriority = wiFiFirstPriority;
+    }
+    if (wiFiSecondPriority != null) {
+      _result.wiFiSecondPriority = wiFiSecondPriority;
+    }
+    return _result;
+  }
   factory SecurityBearSetup.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SecurityBearSetup.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -29,7 +41,7 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SecurityBearSetup copyWith(void Function(SecurityBearSetup) updates) => super.copyWith((message) => updates(message as SecurityBearSetup)); // ignore: deprecated_member_use
+  SecurityBearSetup copyWith(void Function(SecurityBearSetup) updates) => super.copyWith((message) => updates(message as SecurityBearSetup)) as SecurityBearSetup; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SecurityBearSetup create() => SecurityBearSetup._();
@@ -70,7 +82,19 @@ class WiFiInformation extends $pb.GeneratedMessage {
   ;
 
   WiFiInformation._() : super();
-  factory WiFiInformation() => create();
+  factory WiFiInformation({
+    $core.String wiFiName,
+    $core.String wiFiPassword,
+  }) {
+    final _result = create();
+    if (wiFiName != null) {
+      _result.wiFiName = wiFiName;
+    }
+    if (wiFiPassword != null) {
+      _result.wiFiPassword = wiFiPassword;
+    }
+    return _result;
+  }
   factory WiFiInformation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory WiFiInformation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -82,7 +106,7 @@ class WiFiInformation extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  WiFiInformation copyWith(void Function(WiFiInformation) updates) => super.copyWith((message) => updates(message as WiFiInformation)); // ignore: deprecated_member_use
+  WiFiInformation copyWith(void Function(WiFiInformation) updates) => super.copyWith((message) => updates(message as WiFiInformation)) as WiFiInformation; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static WiFiInformation create() => WiFiInformation._();
@@ -118,7 +142,15 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   ;
 
   SBCommendStatus._() : super();
-  factory SBCommendStatus() => create();
+  factory SBCommendStatus({
+    $core.bool success,
+  }) {
+    final _result = create();
+    if (success != null) {
+      _result.success = success;
+    }
+    return _result;
+  }
   factory SBCommendStatus.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SBCommendStatus.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -130,7 +162,7 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SBCommendStatus copyWith(void Function(SBCommendStatus) updates) => super.copyWith((message) => updates(message as SBCommendStatus)); // ignore: deprecated_member_use
+  SBCommendStatus copyWith(void Function(SBCommendStatus) updates) => super.copyWith((message) => updates(message as SBCommendStatus)) as SBCommendStatus; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SBCommendStatus create() => SBCommendStatus._();
@@ -160,7 +192,27 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   ;
 
   SBFirebaseAccountInformation._() : super();
-  factory SBFirebaseAccountInformation() => create();
+  factory SBFirebaseAccountInformation({
+    $core.String fireBaseProjectId,
+    $core.String fireBaseApiKey,
+    $core.String userEmail,
+    $core.String userPassword,
+  }) {
+    final _result = create();
+    if (fireBaseProjectId != null) {
+      _result.fireBaseProjectId = fireBaseProjectId;
+    }
+    if (fireBaseApiKey != null) {
+      _result.fireBaseApiKey = fireBaseApiKey;
+    }
+    if (userEmail != null) {
+      _result.userEmail = userEmail;
+    }
+    if (userPassword != null) {
+      _result.userPassword = userPassword;
+    }
+    return _result;
+  }
   factory SBFirebaseAccountInformation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SBFirebaseAccountInformation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -172,7 +224,7 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SBFirebaseAccountInformation copyWith(void Function(SBFirebaseAccountInformation) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountInformation)); // ignore: deprecated_member_use
+  SBFirebaseAccountInformation copyWith(void Function(SBFirebaseAccountInformation) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountInformation)) as SBFirebaseAccountInformation; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SBFirebaseAccountInformation create() => SBFirebaseAccountInformation._();

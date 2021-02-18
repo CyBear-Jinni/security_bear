@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: cbj_app_connections.proto
 //
-// @dart = 2.3
+// @dart = 2.7
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
 
 import 'dart:core' as $core;
@@ -16,7 +16,15 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
   ;
 
   SmartDeviceInfo._() : super();
-  factory SmartDeviceInfo() => create();
+  factory SmartDeviceInfo({
+    $core.String smartDeviceIP,
+  }) {
+    final _result = create();
+    if (smartDeviceIP != null) {
+      _result.smartDeviceIP = smartDeviceIP;
+    }
+    return _result;
+  }
   factory SmartDeviceInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SmartDeviceInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -28,7 +36,7 @@ class SmartDeviceInfo extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SmartDeviceInfo copyWith(void Function(SmartDeviceInfo) updates) => super.copyWith((message) => updates(message as SmartDeviceInfo)); // ignore: deprecated_member_use
+  SmartDeviceInfo copyWith(void Function(SmartDeviceInfo) updates) => super.copyWith((message) => updates(message as SmartDeviceInfo)) as SmartDeviceInfo; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static SmartDeviceInfo create() => SmartDeviceInfo._();
@@ -55,7 +63,15 @@ class CBJCommendStatus extends $pb.GeneratedMessage {
   ;
 
   CBJCommendStatus._() : super();
-  factory CBJCommendStatus() => create();
+  factory CBJCommendStatus({
+    $core.bool success,
+  }) {
+    final _result = create();
+    if (success != null) {
+      _result.success = success;
+    }
+    return _result;
+  }
   factory CBJCommendStatus.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CBJCommendStatus.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
@@ -67,7 +83,7 @@ class CBJCommendStatus extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CBJCommendStatus copyWith(void Function(CBJCommendStatus) updates) => super.copyWith((message) => updates(message as CBJCommendStatus)); // ignore: deprecated_member_use
+  CBJCommendStatus copyWith(void Function(CBJCommendStatus) updates) => super.copyWith((message) => updates(message as CBJCommendStatus)) as CBJCommendStatus; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static CBJCommendStatus create() => CBJCommendStatus._();
