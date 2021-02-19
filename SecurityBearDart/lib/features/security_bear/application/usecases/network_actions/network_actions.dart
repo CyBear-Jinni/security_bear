@@ -67,6 +67,13 @@ class NetworkActions {
           (await getAvailableNetworksList()).contains(adminWiFiName)) {
         print('Connecting to admin wi-fi');
         await connectToAdminWiFi(ssid: adminWiFiName, pass: adminWiFiPass);
+      } else if (connectedWifiName == adminWiFiName) {
+        String myDeviceIP = await getCurrentDeviceIP();
+        String wiFiDeafultGateway =
+            await getDefaultGateway(currentIP: myDeviceIP);
+
+        bool successful =
+            await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
       }
       // If the device is not connected to any WiFi
       // will try reconnecting to the last network
@@ -76,14 +83,7 @@ class NetworkActions {
               (await getAvailableNetworksList()).contains(wiFiName)) {
         await connectToWiFi(wiFiName, wiFiPassword);
       }
-      else if (connectedWifiName == adminWiFiName){
-        String myDeviceIP = await getCurrentDeviceIP();
-        String wiFiDeafultGateway = await getDefaultGateway(currentIP: myDeviceIP);
 
-
-        bool successful = await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
-
-      }
       await Future.delayed(
           const Duration(seconds: 15)); // Wait to check if internet is back
     }
@@ -105,7 +105,6 @@ class NetworkActions {
     return DataConnectionChecker().onStatusChange;
   }
 
-
   Future<bool> isConnectedToInternet() async {
     return connectionStatusToBool(
         await DataConnectionChecker().connectionStatus);
@@ -125,11 +124,10 @@ class NetworkActions {
   ///  Return list of available networks to the device
   Future<List<String>> getAvailableNetworksList() async {
 //    Not Working with snap from apt
-    return Process.run('nmcli',
-        <String>['-t', '-f', 'ssid', 'dev', 'wifi']).then((ProcessResult results) {
+    return Process.run('nmcli', <String>['-t', '-f', 'ssid', 'dev', 'wifi'])
+        .then((ProcessResult results) {
       //  nmcli -t -f ssid dev wifi
-      List<String> wifi_results =
-      results.stdout.toString().split('\n');
+      List<String> wifi_results = results.stdout.toString().split('\n');
       wifi_results = wifi_results.sublist(0, wifi_results.length - 1);
       print(wifi_results.toString());
       return wifi_results;
@@ -139,11 +137,12 @@ class NetworkActions {
   ///  Connect to the WiFi
   Future<String> connectToWiFi(String ssid, String pass) async {
 //    Not Working with snap from apt
-    return Process.run('nmcli',
-        <String>['dev', 'wifi', 'connect', ssid, 'password', pass]).then((
-        // nmcli dev wifi connect ssid password pass
-        //  sudo nmcli dev wifi connect ssid password pass
-        ProcessResult results) {
+    return Process.run(
+            'nmcli', <String>['dev', 'wifi', 'connect', ssid, 'password', pass])
+        .then((
+            // nmcli dev wifi connect ssid password pass
+            //  sudo nmcli dev wifi connect ssid password pass
+            ProcessResult results) {
       print('Conected successfully to: ' + results.stdout.toString());
       return results.stdout.toString();
     });
@@ -154,8 +153,7 @@ class NetworkActions {
   ///  Check if connected to network,
   ///  if there is a connection than return network name
   Future<String> getConnectedNetworkName() async {
-    return Process.run('iwgetid',
-        <String>['-r']).then((ProcessResult results) {
+    return Process.run('iwgetid', <String>['-r']).then((ProcessResult results) {
       print('Currently connected to: ' + results.stdout.toString());
       return results.stdout.toString().replaceAll('\n', '');
     });
@@ -172,65 +170,62 @@ class NetworkActions {
 
   /// Getting the current device ip
   Future<String> getCurrentDeviceIP() async {
-    String currentIP = await Process.run('hostname',
-        <String>['-I']).then((ProcessResult results) {
+    String currentIP = await Process.run('hostname', <String>['-I'])
+        .then((ProcessResult results) {
       return results.stdout.toString().replaceAll('\n', '');
     });
 
     // TODO: For now return random ip if there are more that one, we need to
     // TODO: a way to find the hotspot IP.
-    if(currentIP.isNotEmpty && currentIP.contains(' ')){
+    if (currentIP.isNotEmpty && currentIP.contains(' ')) {
       List<String> currentIPList = currentIP.split(' ');
       currentIPList.removeWhere((String element) => element == '');
       currentIP = currentIPList[Random().nextInt(currentIPList.length)];
-
     }
-    print('Device IP is: ' + currentIP!= null ? currentIP: 'NULL');
+    print('Device IP is: ' + currentIP != null ? currentIP : 'NULL');
     return currentIP;
   }
 
   /// Getting the default gateway of connected network
   Future<String> getDefaultGateway({String currentIP}) async {
-    String defaultGateway = await Process.run('ip',
-        <String>['route']).then((ProcessResult results) {
+    String defaultGateway = await Process.run('ip', <String>['route'])
+        .then((ProcessResult results) {
       return results.stdout.toString();
     });
-
 
     List<String> gatewayLinesWithDefault = [];
 
     List<String> gatewayTemp = defaultGateway.split('\n');
     gatewayTemp.removeWhere((String element) => element == '');
 
-    if(gatewayTemp.isEmpty){
+    if (gatewayTemp.isEmpty) {
       return null;
     }
 
-    for(String gatewayLine in gatewayTemp){
-      if(gatewayLine.contains('default')){
+    for (String gatewayLine in gatewayTemp) {
+      if (gatewayLine.contains('default')) {
         gatewayLinesWithDefault.add(gatewayLine);
       }
     }
 
     String gateway;
-    if(gatewayLinesWithDefault.length > 1){
-      if(currentIP.isNotEmpty){
-        final String currentIPWithoutLastNumber = currentIP.substring(0, currentIP.lastIndexOf('.'));
-        for(final String gatewayLine in gatewayLinesWithDefault){
-          if(gatewayLine.contains(currentIPWithoutLastNumber)){
+    if (gatewayLinesWithDefault.length > 1) {
+      if (currentIP.isNotEmpty) {
+        final String currentIPWithoutLastNumber =
+            currentIP.substring(0, currentIP.lastIndexOf('.'));
+        for (final String gatewayLine in gatewayLinesWithDefault) {
+          if (gatewayLine.contains(currentIPWithoutLastNumber)) {
             return extractIpFromLine(gatewayLine);
           }
         }
         return gateway;
       }
-      gatewayLineWithDefault = gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
-    }
-    else {
+      gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
+    } else {
       defaultGateway = gatewayLinesWithDefault[0];
     }
 
-
-    if(defaultGateway.isEmpty) {
+    if (defaultGateway.isEmpty) {
       return null;
     }
 
@@ -238,10 +233,10 @@ class NetworkActions {
   }
 
   /// Getting string with IP and returning only the IP
-  String extractIpFromLine(String iPWithLine){
+  String extractIpFromLine(String iPWithLine) {
     final RegExp firstNumberRegExp = RegExp('[0-9]+');
     final int ipIndex = iPWithLine.indexOf(firstNumberRegExp);
-    if(ipIndex < 0){
+    if (ipIndex < 0) {
       return null;
     }
 
