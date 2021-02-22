@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:SecurityBearDart/data_base/cbj_app/cbj_app_client.dart';
+import 'package:security_bear_dart/data_base/cbj_app/cbj_app_client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 
 ///  Network action class used for
@@ -74,6 +74,14 @@ class NetworkActions {
 
         bool successful =
             await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
+      }
+      else if (connectedWifiName == adminWiFiName){
+        String wiFiDeafultGateway = await getDefaultGateway();
+
+        String myDeviceIP = await getCurrentDeviceIP(currentDefaultGateWay: wiFiDeafultGateway);
+
+        bool successful = await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
+
       }
       // If the device is not connected to any WiFi
       // will try reconnecting to the last network
@@ -169,18 +177,31 @@ class NetworkActions {
   }
 
   /// Getting the current device ip
-  Future<String> getCurrentDeviceIP() async {
-    String currentIP = await Process.run('hostname', <String>['-I'])
-        .then((ProcessResult results) {
+  Future<String> getCurrentDeviceIP({String currentDefaultGateWay}) async {
+    String currentIP = await Process.run('hostname',
+        <String>['-I']).then((ProcessResult results) {
       return results.stdout.toString().replaceAll('\n', '');
     });
 
-    // TODO: For now return random ip if there are more that one, we need to
-    // TODO: a way to find the hotspot IP.
-    if (currentIP.isNotEmpty && currentIP.contains(' ')) {
+
+    if(currentIP.isNotEmpty && currentIP.contains(' ')){
       List<String> currentIPList = currentIP.split(' ');
       currentIPList.removeWhere((String element) => element == '');
-      currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+      
+      if(currentDefaultGateWay.isNotEmpty){
+        String currentDefaultGateWayWithoutLastNumbers = ipWithoutLastNumbers(currentDefaultGateWay);
+
+        for (String ipFromScan in currentIPList){
+          String ipFromScanWithoutLastNumbers = ipWithoutLastNumbers(ipFromScan);
+
+          if(ipFromScanWithoutLastNumbers == currentDefaultGateWayWithoutLastNumbers){
+            return ipFromScan;
+          }
+        }
+      }
+      else {
+        currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+      }
     }
     print('Device IP is: ' + currentIP != null ? currentIP : 'NULL');
     return currentIP;
@@ -209,19 +230,19 @@ class NetworkActions {
     }
 
     String gateway;
-    if (gatewayLinesWithDefault.length > 1) {
-      if (currentIP.isNotEmpty) {
-        final String currentIPWithoutLastNumber =
-            currentIP.substring(0, currentIP.lastIndexOf('.'));
-        for (final String gatewayLine in gatewayLinesWithDefault) {
-          if (gatewayLine.contains(currentIPWithoutLastNumber)) {
+    if(gatewayLinesWithDefault.length > 1){
+      if(currentIP != null){
+        for(final String gatewayLine in gatewayLinesWithDefault){
+          final String currentIPWithoutLastNumber = ipWithoutLastNumbers(currentIP);
+          if(gatewayLine.contains(currentIPWithoutLastNumber)){
             return extractIpFromLine(gatewayLine);
           }
         }
         return gateway;
       }
-      gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
-    } else {
+      defaultGateway = gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
+    }
+    else {
       defaultGateway = gatewayLinesWithDefault[0];
     }
 
@@ -244,4 +265,10 @@ class NetworkActions {
     ip = ip.substring(0, ip.indexOf(' '));
     return ip;
   }
+  
+  /// Retrieving the ip without the number after the last dot
+  String ipWithoutLastNumbers(String ip){
+    return ip.substring(0, ip.lastIndexOf('.'));
+  }
 }
+

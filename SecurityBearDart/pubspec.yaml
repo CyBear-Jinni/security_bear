@@ -1,6 +1,6 @@
-name: SecurityBearDart
-description: Easy and secure way to connect to your computer for maintenance.
-version: 1.0.1
+name: security_bear_dart
+description: Easy and secure way to connect to your device for maintenance.
+version: 1.1.0
 homepage: https://github.com/CyBear-Jinni/Security-Bear
 author: Guy Luz
 
@@ -13,30 +13,30 @@ dependencies:
   # Checks for an internet connection by opening a socket
   data_connection_checker: ^0.3.4
   # Convert enum to string
-  enum_to_string: ^1.0.13
+  enum_to_string: ^1.0.14
   # Allow returning more than one type of object
   equatable: ^1.2.5
   # Firebase Auth and Firestore SDKs.
   firedart: ^0.8.3
   # For the injection, allow accessing an object from anywhere in an App
-  get_it: ^5.0.1
+  get_it: ^5.0.2
   # Key-value database
   hive: ^1.4.4+1
   # Collection of lint rules for Dart and Flutter projects
-  lint: ^1.3.0
+  lint: ^1.3.1
   # Process run helpers for Linux/Win/Mac.
-  process_run: ^0.11.0+2
+  process_run: ^0.11.2+6
   # Provides parse, inspect, and manipulate stack traces
-  stack_trace: ^1.9.5
+  stack_trace: ^1.9.6
 
 
 dev_dependencies:
-  hive_generator: ^0.8.1
+  build_runner:
+  hive_generator: ^0.8.2
   # Library for mocks
   mockito: ^4.1.3
   pedantic: ^1.9.2
-  test: ^1.15.4
-  build_runner:
+  test: ^1.15.7
 
 
 
