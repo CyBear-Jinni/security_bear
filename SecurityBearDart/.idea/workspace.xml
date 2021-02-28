@@ -23,14 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scripts/bashScripts/dartSdkDownload.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../scripts/bashScripts/dartSdkDownload.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../snap/.directory" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../snap/.snapcraft/state" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../snap/snapcraft.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../snap/snapcraft.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +71,25 @@
       <option name="presentableId" value="Default" />
       <updated>1603889298541</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed device keep disconnecting from admin if secondary network is found.">
+      <created>1613701609377</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613701609377</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -91,34 +103,49 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed device keep disconnecting from admin if secondary network is found." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed device keep disconnecting from admin if secondary network is found." />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1818" height="279" key="GridCell.Tab.0.bottom" timestamp="1606867855404">
+    <state width="1818" height="279" key="GridCell.Tab.0.bottom" timestamp="1613783670828">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1606867855404" />
-    <state width="1818" height="279" key="GridCell.Tab.0.center" timestamp="1606867855404">
+    <state width="1818" height="279" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670828" />
+    <state width="1818" height="279" key="GridCell.Tab.0.center" timestamp="1613783670827">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1606867855404" />
-    <state width="1818" height="279" key="GridCell.Tab.0.left" timestamp="1606867855404">
+    <state width="1818" height="279" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670827" />
+    <state width="1818" height="279" key="GridCell.Tab.0.left" timestamp="1613783670827">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1606867855404" />
-    <state width="1818" height="279" key="GridCell.Tab.0.right" timestamp="1606867855404">
+    <state width="1818" height="279" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670827" />
+    <state width="1818" height="279" key="GridCell.Tab.0.right" timestamp="1613783670827">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1606867855404" />
-    <state x="657" y="160" key="RollbackChangesDialog" timestamp="1606864957394">
+    <state width="1818" height="279" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670827" />
+    <state x="657" y="160" key="RollbackChangesDialog" timestamp="1613701543337">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state x="657" y="160" key="RollbackChangesDialog/56.0.1864.1080@56.0.1864.1080" timestamp="1606864957394" />
-    <state x="2162" y="163" key="SettingsEditor" timestamp="1603889361665">
-      <screen x="1680" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2162" y="163" key="SettingsEditor/1680.0.1920.1080/0.15.1680.1050@1680.0.1920.1080" timestamp="1603889361665" />
-    <state x="693" y="263" width="590" height="554" key="find.popup" timestamp="1606867573632">
+    <state x="657" y="160" key="RollbackChangesDialog/56.0.1864.1080@56.0.1864.1080" timestamp="1613701543337" />
+    <state x="584" y="271" key="Vcs.Push.Dialog.v2" timestamp="1613780342837">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state x="693" y="263" width="590" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1606867573632" />
+    <state x="584" y="271" key="Vcs.Push.Dialog.v2/56.0.1864.1080@56.0.1864.1080" timestamp="1613780342837" />
+    <state x="693" y="263" width="590" height="554" key="find.popup" timestamp="1613696875947">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="693" y="263" width="590" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1613696875947" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart</url>
+          <line>65</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
