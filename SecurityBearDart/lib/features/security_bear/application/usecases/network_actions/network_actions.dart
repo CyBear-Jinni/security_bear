@@ -68,12 +68,12 @@ class NetworkActions {
         print('Connecting to admin wi-fi');
         await connectToAdminWiFi(ssid: adminWiFiName, pass: adminWiFiPass);
       } else if (connectedWifiName == adminWiFiName) {
-        String myDeviceIP = await getCurrentDeviceIP();
-        String wiFiDeafultGateway =
-            await getDefaultGateway(currentIP: myDeviceIP);
+        final String wiFiDefaultGateway = await getDefaultGateway();
+        final String myDeviceIP =
+            await getCurrentDeviceIP(defaultGateway: wiFiDefaultGateway);
 
-        bool successful =
-            await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
+        final bool successful =
+            await CBJAppClient.SendMyIPToServer(wiFiDefaultGateway, myDeviceIP);
       }
       // If the device is not connected to any WiFi
       // will try reconnecting to the last network
@@ -93,7 +93,7 @@ class NetworkActions {
   ///  if true it will try to connect to it with the password that it got
   Future<void> connectToAdminWiFi(
       {String ssid = 'ho', String pass = '123'}) async {
-    String connectingResult = await connectToWiFi(ssid, pass);
+    final String connectingResult = await connectToWiFi(ssid, pass);
     print('This is connection result: ' + connectingResult);
     // TODO: fix if connectingResult is 'Error: Connection activation failed: (60) New connection activation was enqueued.'
     // Need to delete it with 'nmcli con delete <SSID>' and than can connect again
@@ -169,20 +169,32 @@ class NetworkActions {
   }
 
   /// Getting the current device ip
-  Future<String> getCurrentDeviceIP() async {
+  Future<String> getCurrentDeviceIP({String defaultGateway}) async {
     String currentIP = await Process.run('hostname', <String>['-I'])
         .then((ProcessResult results) {
       return results.stdout.toString().replaceAll('\n', '');
     });
 
-    // TODO: For now return random ip if there are more that one, we need to
-    // TODO: a way to find the hotspot IP.
     if (currentIP.isNotEmpty && currentIP.contains(' ')) {
-      List<String> currentIPList = currentIP.split(' ');
+      final List<String> currentIPList = currentIP.split(' ');
       currentIPList.removeWhere((String element) => element == '');
-      currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+
+      if (defaultGateway != null && defaultGateway.isNotEmpty) {
+        final String defaultGatewayWithoutLastNumber =
+            ipWithoutLastNumber(defaultGateway);
+        final String currentIpHelper = currentIPList.firstWhere(
+            (String element) =>
+                ipWithoutLastNumber(element) ==
+                defaultGatewayWithoutLastNumber);
+        currentIP = currentIpHelper;
+        if (currentIpHelper == null) {
+          currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+        }
+      } else {
+        currentIP = currentIPList[Random().nextInt(currentIPList.length)];
+      }
     }
-    print('Device IP is: ' + currentIP != null ? currentIP : 'NULL');
+    print('Device IP is: $currentIP' != null ? currentIP : 'NULL');
     return currentIP;
   }
 
@@ -210,7 +222,7 @@ class NetworkActions {
 
     String gateway;
     if (gatewayLinesWithDefault.length > 1) {
-      if (currentIP.isNotEmpty) {
+      if (currentIP != null && currentIP.isNotEmpty) {
         final String currentIPWithoutLastNumber =
             currentIP.substring(0, currentIP.lastIndexOf('.'));
         for (final String gatewayLine in gatewayLinesWithDefault) {
@@ -220,7 +232,8 @@ class NetworkActions {
         }
         return gateway;
       }
-      gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
+      defaultGateway = gatewayLinesWithDefault[
+          Random().nextInt(gatewayLinesWithDefault.length)];
     } else {
       defaultGateway = gatewayLinesWithDefault[0];
     }
@@ -243,5 +256,10 @@ class NetworkActions {
     String ip = iPWithLine.substring(ipIndex);
     ip = ip.substring(0, ip.indexOf(' '));
     return ip;
+  }
+
+  String ipWithoutLastNumber(String ip) {
+    final String ipWithoutLastNumber = ip.substring(0, ip.lastIndexOf('.'));
+    return ipWithoutLastNumber;
   }
 }

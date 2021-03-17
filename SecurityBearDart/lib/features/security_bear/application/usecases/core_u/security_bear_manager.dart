@@ -5,6 +5,12 @@ import 'package:grpc/grpc.dart';
 
 /// This class is where all the program start after the main file
 class SecurityBearManagerU {
+  final wifiAdminDefaultName = 'CyBear Jinni';
+  final wifiAdminDefaultPass = 'CyBear Jinni';
+
+  final wifiSecondDefaultName = 'CyBear_Jinni';
+  final wifiSecondDefaultPass = 'CyBear_Jinni';
+
   SecurityBearManagerU() {
     securityBearMainAsync();
   }
@@ -21,8 +27,8 @@ class SecurityBearManagerU {
   ///  This function starts the object
   ///  to manege the state of the device network connection
   Future<void> manegeNetworkConnection() async {
-    NetworkActions networkActions = NetworkActions(
-        'CyBear Jinni', 'CyBear Jinni', 'CyBear_Jinni', 'CyBear_Jinni');
+    final NetworkActions networkActions = NetworkActions(wifiAdminDefaultName,
+        wifiAdminDefaultPass, wifiSecondDefaultName, wifiSecondDefaultPass);
 
     await networkActions.connectToAdminWhenExist();
   }

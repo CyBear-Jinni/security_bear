@@ -23,8 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/cbj_app_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/cbj_app_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbjson.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pb.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbjson.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,22 +117,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fixed device keep disconnecting from admin if secondary network is found." />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1818" height="279" key="GridCell.Tab.0.bottom" timestamp="1613783670828">
+    <state width="594" height="646" key="DebuggerActiveHint" timestamp="1615303394297">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670828" />
-    <state width="1818" height="279" key="GridCell.Tab.0.center" timestamp="1613783670827">
+    <state width="594" height="646" key="DebuggerActiveHint/56.0.1864.1080@56.0.1864.1080" timestamp="1615303394297" />
+    <state width="1818" height="424" key="GridCell.Tab.0.bottom" timestamp="1615828333540">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670827" />
-    <state width="1818" height="279" key="GridCell.Tab.0.left" timestamp="1613783670827">
+    <state width="1818" height="424" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1615828333540" />
+    <state width="1818" height="424" key="GridCell.Tab.0.center" timestamp="1615828333540">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670827" />
-    <state width="1818" height="279" key="GridCell.Tab.0.right" timestamp="1613783670827">
+    <state width="1818" height="424" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1615828333540" />
+    <state width="1818" height="424" key="GridCell.Tab.0.left" timestamp="1615828333539">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="279" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1613783670827" />
+    <state width="1818" height="424" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1615828333539" />
+    <state width="1818" height="424" key="GridCell.Tab.0.right" timestamp="1615828333540">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state width="1818" height="424" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1615828333540" />
     <state x="657" y="160" key="RollbackChangesDialog" timestamp="1613701543337">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
@@ -132,20 +145,13 @@
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
     <state x="584" y="271" key="Vcs.Push.Dialog.v2/56.0.1864.1080@56.0.1864.1080" timestamp="1613780342837" />
-    <state x="693" y="263" width="590" height="554" key="find.popup" timestamp="1613696875947">
+    <state width="936" height="544" key="XDebugger.FullValuePopup" timestamp="1615303178810">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state x="693" y="263" width="590" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1613696875947" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart</url>
-          <line>65</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="936" height="544" key="XDebugger.FullValuePopup/56.0.1864.1080@56.0.1864.1080" timestamp="1615303178810" />
+    <state x="693" y="263" width="827" height="554" key="find.popup" timestamp="1615293154667">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="693" y="263" width="827" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1615293154667" />
   </component>
 </project>
