@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:SecurityBearDart/data_base/cbj_app/cbj_app_client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:security_bear_dart/data_base/cbj_app/cbj_app_client.dart';
 
 ///  Network action class used for
 ///  controlling the program in the different network status

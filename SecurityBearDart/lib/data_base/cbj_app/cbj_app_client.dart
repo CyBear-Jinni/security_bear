@@ -1,5 +1,5 @@
-import 'package:SecurityBearDart/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
+import 'package:security_bear_dart/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart';
 
 /// Class to manage calls to the CBJApp server
 class CBJAppClient {

@@ -24,16 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/cbj_app_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/cbj_app_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pb.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbjson.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pb.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbjson.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613701609377</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changed grpc, made process of sending data to first network more efficient">
+      <created>1615981245884</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615981245884</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -114,7 +112,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed device keep disconnecting from admin if secondary network is found." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed device keep disconnecting from admin if secondary network is found." />
+    <MESSAGE value="Changed grpc, made process of sending data to first network more efficient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed grpc, made process of sending data to first network more efficient" />
   </component>
   <component name="WindowStateProjectService">
     <state width="594" height="646" key="DebuggerActiveHint" timestamp="1615303394297">
@@ -137,14 +136,22 @@
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
     <state width="1818" height="424" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1615828333540" />
+    <state x="239" y="92" key="MergeDialog" timestamp="1615981331349">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="239" y="92" key="MergeDialog/56.0.1864.1080@56.0.1864.1080" timestamp="1615981331349" />
+    <state x="620" y="294" key="MultipleFileMergeDialog" timestamp="1615981331358">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="620" y="294" key="MultipleFileMergeDialog/56.0.1864.1080@56.0.1864.1080" timestamp="1615981331358" />
     <state x="657" y="160" key="RollbackChangesDialog" timestamp="1613701543337">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
     <state x="657" y="160" key="RollbackChangesDialog/56.0.1864.1080@56.0.1864.1080" timestamp="1613701543337" />
-    <state x="584" y="271" key="Vcs.Push.Dialog.v2" timestamp="1613780342837">
+    <state x="584" y="271" key="Vcs.Push.Dialog.v2" timestamp="1615981249790">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state x="584" y="271" key="Vcs.Push.Dialog.v2/56.0.1864.1080@56.0.1864.1080" timestamp="1613780342837" />
+    <state x="584" y="271" key="Vcs.Push.Dialog.v2/56.0.1864.1080@56.0.1864.1080" timestamp="1615981249790" />
     <state width="936" height="544" key="XDebugger.FullValuePopup" timestamp="1615303178810">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
