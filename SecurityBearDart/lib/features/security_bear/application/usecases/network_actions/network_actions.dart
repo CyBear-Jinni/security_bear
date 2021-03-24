@@ -31,8 +31,8 @@ class NetworkActions {
 
     Stream<DataConnectionStatus> listener = returnStatusIfChanged();
 
-    listener.listen((status) async {
-      bool isConnected = connectionStatusToBool(status);
+    listener.listen((DataConnectionStatus status) async {
+      final bool isConnected = connectionStatusToBool(status);
       if (isConnected) {
         print('Connected to the Internet');
         processLocation = false;
