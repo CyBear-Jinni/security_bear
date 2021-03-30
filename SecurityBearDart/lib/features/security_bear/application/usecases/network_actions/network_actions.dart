@@ -2,23 +2,20 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:security_bear_dart/data_base/cbj_app/cbj_app_client.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:security_bear_dart/data_base/cbj_app/cbj_app_client.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/core/NetworkEntity.dart';
 
 ///  Network action class used for
 ///  controlling the program in the different network status
 class NetworkActions {
-  static String adminWiFiName;
-  static String adminWiFiPass;
-  static String wiFiName;
-  static String wiFiPassword;
+  static NetworkEntity firstAndAdminNetworkDefault;
+  static NetworkEntity secondNetworkDefault;
 
-  NetworkActions(String adminWiFiNameF, String adminWiFiPassF, String wiFiNameF,
-      String wiFiPasswordF) {
-    adminWiFiName = adminWiFiNameF;
-    adminWiFiPass = adminWiFiPassF;
-    wiFiName = wiFiNameF;
-    wiFiPassword = wiFiPasswordF;
+  NetworkActions(NetworkEntity firstAndAdminNetworkDefaultF,
+      NetworkEntity secondNetworkDefaultF) {
+    firstAndAdminNetworkDefault = firstAndAdminNetworkDefaultF;
+    secondNetworkDefault = secondNetworkDefaultF;
   }
 
   ///  This function starts the connection to the requested WiFi
@@ -31,8 +28,8 @@ class NetworkActions {
 
     Stream<DataConnectionStatus> listener = returnStatusIfChanged();
 
-    listener.listen((status) async {
-      bool isConnected = connectionStatusToBool(status);
+    listener.listen((DataConnectionStatus status) async {
+      final bool isConnected = connectionStatusToBool(status);
       if (isConnected) {
         print('Connected to the Internet');
         processLocation = false;
@@ -63,33 +60,30 @@ class NetworkActions {
     String connectedWifiName;
     while (true) {
       connectedWifiName = await getConnectedNetworkName();
-      if (connectedWifiName != adminWiFiName &&
-          (await getAvailableNetworksList()).contains(adminWiFiName)) {
+      if (connectedWifiName != firstAndAdminNetworkDefault.networkName &&
+          (await getAvailableNetworksList())
+              .contains(firstAndAdminNetworkDefault.networkName)) {
         print('Connecting to admin wi-fi');
-        await connectToAdminWiFi(ssid: adminWiFiName, pass: adminWiFiPass);
-      } else if (connectedWifiName == adminWiFiName) {
-        String myDeviceIP = await getCurrentDeviceIP();
-        String wiFiDeafultGateway =
-            await getDefaultGateway(currentIP: myDeviceIP);
+        await connectToAdminWiFi(
+            ssid: firstAndAdminNetworkDefault.networkName,
+            pass: firstAndAdminNetworkDefault.networkPass);
+      } else if (connectedWifiName == firstAndAdminNetworkDefault.networkName) {
+        final String wiFiDefaultGateway = await getDefaultGateway();
+        final String myDeviceIP =
+            await getCurrentDeviceIP(defaultGateway: wiFiDefaultGateway);
 
-        bool successful =
-            await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
-      }
-      else if (connectedWifiName == adminWiFiName){
-        String wiFiDeafultGateway = await getDefaultGateway();
-
-        String myDeviceIP = await getCurrentDeviceIP(currentDefaultGateWay: wiFiDeafultGateway);
-
-        bool successful = await CBJAppClient.SendMyIPToServer(wiFiDeafultGateway, myDeviceIP);
-
+        final bool successful =
+            await CBJAppClient.SendMyIPToServer(wiFiDefaultGateway, myDeviceIP);
       }
       // If the device is not connected to any WiFi
       // will try reconnecting to the last network
       else if (connectedWifiName == null ||
           connectedWifiName == '' ||
-          connectedWifiName != wiFiName &&
-              (await getAvailableNetworksList()).contains(wiFiName)) {
-        await connectToWiFi(wiFiName, wiFiPassword);
+          connectedWifiName != secondNetworkDefault.networkName &&
+              (await getAvailableNetworksList())
+                  .contains(secondNetworkDefault.networkName)) {
+        await connectToWiFi(
+            secondNetworkDefault.networkName, secondNetworkDefault.networkPass);
       }
 
       await Future.delayed(
@@ -101,7 +95,7 @@ class NetworkActions {
   ///  if true it will try to connect to it with the password that it got
   Future<void> connectToAdminWiFi(
       {String ssid = 'ho', String pass = '123'}) async {
-    String connectingResult = await connectToWiFi(ssid, pass);
+    final String connectingResult = await connectToWiFi(ssid, pass);
     print('This is connection result: ' + connectingResult);
     // TODO: fix if connectingResult is 'Error: Connection activation failed: (60) New connection activation was enqueued.'
     // Need to delete it with 'nmcli con delete <SSID>' and than can connect again
@@ -177,33 +171,32 @@ class NetworkActions {
   }
 
   /// Getting the current device ip
-  Future<String> getCurrentDeviceIP({String currentDefaultGateWay}) async {
-    String currentIP = await Process.run('hostname',
-        <String>['-I']).then((ProcessResult results) {
+  Future<String> getCurrentDeviceIP({String defaultGateway}) async {
+    String currentIP = await Process.run('hostname', <String>['-I'])
+        .then((ProcessResult results) {
       return results.stdout.toString().replaceAll('\n', '');
     });
 
-
-    if(currentIP.isNotEmpty && currentIP.contains(' ')){
-      List<String> currentIPList = currentIP.split(' ');
+    if (currentIP.isNotEmpty && currentIP.contains(' ')) {
+      final List<String> currentIPList = currentIP.split(' ');
       currentIPList.removeWhere((String element) => element == '');
-      
-      if(currentDefaultGateWay.isNotEmpty){
-        String currentDefaultGateWayWithoutLastNumbers = ipWithoutLastNumbers(currentDefaultGateWay);
 
-        for (String ipFromScan in currentIPList){
-          String ipFromScanWithoutLastNumbers = ipWithoutLastNumbers(ipFromScan);
-
-          if(ipFromScanWithoutLastNumbers == currentDefaultGateWayWithoutLastNumbers){
-            return ipFromScan;
-          }
+      if (defaultGateway != null && defaultGateway.isNotEmpty) {
+        final String defaultGatewayWithoutLastNumber =
+            ipWithoutLastNumber(defaultGateway);
+        final String currentIpHelper = currentIPList.firstWhere(
+            (String element) =>
+                ipWithoutLastNumber(element) ==
+                defaultGatewayWithoutLastNumber);
+        currentIP = currentIpHelper;
+        if (currentIpHelper == null) {
+          currentIP = currentIPList[Random().nextInt(currentIPList.length)];
         }
-      }
-      else {
+      } else {
         currentIP = currentIPList[Random().nextInt(currentIPList.length)];
       }
     }
-    print('Device IP is: ' + currentIP != null ? currentIP : 'NULL');
+    print('Device IP is: $currentIP' != null ? currentIP : 'NULL');
     return currentIP;
   }
 
@@ -230,19 +223,20 @@ class NetworkActions {
     }
 
     String gateway;
-    if(gatewayLinesWithDefault.length > 1){
-      if(currentIP != null){
-        for(final String gatewayLine in gatewayLinesWithDefault){
-          final String currentIPWithoutLastNumber = ipWithoutLastNumbers(currentIP);
-          if(gatewayLine.contains(currentIPWithoutLastNumber)){
+    if (gatewayLinesWithDefault.length > 1) {
+      if (currentIP != null && currentIP.isNotEmpty) {
+        final String currentIPWithoutLastNumber =
+            currentIP.substring(0, currentIP.lastIndexOf('.'));
+        for (final String gatewayLine in gatewayLinesWithDefault) {
+          if (gatewayLine.contains(currentIPWithoutLastNumber)) {
             return extractIpFromLine(gatewayLine);
           }
         }
         return gateway;
       }
-      defaultGateway = gatewayLinesWithDefault[Random().nextInt(gatewayLinesWithDefault.length)];
-    }
-    else {
+      defaultGateway = gatewayLinesWithDefault[
+          Random().nextInt(gatewayLinesWithDefault.length)];
+    } else {
       defaultGateway = gatewayLinesWithDefault[0];
     }
 
@@ -265,10 +259,9 @@ class NetworkActions {
     ip = ip.substring(0, ip.indexOf(' '));
     return ip;
   }
-  
-  /// Retrieving the ip without the number after the last dot
-  String ipWithoutLastNumbers(String ip){
-    return ip.substring(0, ip.lastIndexOf('.'));
+
+  String ipWithoutLastNumber(String ip) {
+    final String ipWithoutLastNumber = ip.substring(0, ip.lastIndexOf('.'));
+    return ipWithoutLastNumber;
   }
 }
-
