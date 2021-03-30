@@ -23,22 +23,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="104fe9b4-29da-4e5f-a2ae-32845a4159be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/guy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/hive/hiveAdapters/hive_network_list.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/hive/hive_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/hive/hive_store_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/my_singleton_helper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/system_commands_d/bash_commands_d/bash_commands_for_raspberry_pi_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/system_commands_d/bash_commands_d/common_bash_commands_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/system_commands_d/batch_commands_d/common_batch_commands_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/system_commands_d/system_commands_base_class_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/system_commands_d/system_commands_manager_d.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/core/NetworkEntity.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pb.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbenum.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbenum.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbgrpc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data_base/cbj_app/protoc_as_dart/cbj_app_connections.pbjson.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/my_singleton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/my_singleton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/shared_variables.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/shared_variables.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/core_u/security_bear_manager.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/network_actions/network_actions.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pb.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbenum.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbenum.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbjson.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbjson.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -53,9 +66,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/core/hive" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/core/hive" />
+      <recent name="$PROJECT_DIR$/lib/core" />
+      <recent name="$PROJECT_DIR$/lib/core/system_commands_manager" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
@@ -125,26 +145,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="Changed grpc, made process of sending data to first network more efficient" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="722" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616769600546">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="722" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/56.0.1864.1080@56.0.1864.1080" timestamp="1616769600546" />
     <state width="594" height="646" key="DebuggerActiveHint" timestamp="1615303394297">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
     <state width="594" height="646" key="DebuggerActiveHint/56.0.1864.1080@56.0.1864.1080" timestamp="1615303394297" />
-    <state width="1818" height="363" key="GridCell.Tab.0.bottom" timestamp="1616604708632">
+    <state width="1818" height="212" key="GridCell.Tab.0.bottom" timestamp="1616770157019">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="363" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1616604708632" />
-    <state width="1818" height="363" key="GridCell.Tab.0.center" timestamp="1616604708631">
+    <state width="1818" height="212" key="GridCell.Tab.0.bottom/56.0.1864.1080@56.0.1864.1080" timestamp="1616770157019" />
+    <state width="1818" height="212" key="GridCell.Tab.0.center" timestamp="1616770157019">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="363" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1616604708631" />
-    <state width="1818" height="363" key="GridCell.Tab.0.left" timestamp="1616604708631">
+    <state width="1818" height="212" key="GridCell.Tab.0.center/56.0.1864.1080@56.0.1864.1080" timestamp="1616770157019" />
+    <state width="1818" height="212" key="GridCell.Tab.0.left" timestamp="1616770157019">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="363" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1616604708631" />
-    <state width="1818" height="363" key="GridCell.Tab.0.right" timestamp="1616604708631">
+    <state width="1818" height="212" key="GridCell.Tab.0.left/56.0.1864.1080@56.0.1864.1080" timestamp="1616770157019" />
+    <state width="1818" height="212" key="GridCell.Tab.0.right" timestamp="1616770157019">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state width="1818" height="363" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1616604708631" />
+    <state width="1818" height="212" key="GridCell.Tab.0.right/56.0.1864.1080@56.0.1864.1080" timestamp="1616770157019" />
     <state x="239" y="92" key="MergeDialog" timestamp="1615981331349">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
@@ -165,17 +189,25 @@
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
     <state width="936" height="544" key="XDebugger.FullValuePopup/56.0.1864.1080@56.0.1864.1080" timestamp="1615303178810" />
-    <state x="693" y="263" width="827" height="554" key="find.popup" timestamp="1616350151613">
+    <state x="642" y="156" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1616767735923">
       <screen x="56" y="0" width="1864" height="1080" />
     </state>
-    <state x="693" y="263" width="827" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1616350151613" />
+    <state x="642" y="156" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/56.0.1864.1080@56.0.1864.1080" timestamp="1616767735923" />
+    <state x="693" y="263" width="827" height="554" key="find.popup" timestamp="1616769228536">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="693" y="263" width="827" height="554" key="find.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1616769228536" />
+    <state x="651" y="237" width="672" height="678" key="search.everywhere.popup" timestamp="1616769509181">
+      <screen x="56" y="0" width="1864" height="1080" />
+    </state>
+    <state x="651" y="237" width="672" height="678" key="search.everywhere.popup/56.0.1864.1080@56.0.1864.1080" timestamp="1616769509181" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
           <url>file://$PROJECT_DIR$/lib/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart</url>
-          <line>11</line>
+          <line>12</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

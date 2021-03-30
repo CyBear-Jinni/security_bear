@@ -4,21 +4,18 @@ import 'dart:math';
 
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:security_bear_dart/data_base/cbj_app/cbj_app_client.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/core/NetworkEntity.dart';
 
 ///  Network action class used for
 ///  controlling the program in the different network status
 class NetworkActions {
-  static String adminWiFiName;
-  static String adminWiFiPass;
-  static String wiFiName;
-  static String wiFiPassword;
+  static NetworkEntity firstAndAdminNetworkDefault;
+  static NetworkEntity secondNetworkDefault;
 
-  NetworkActions(String adminWiFiNameF, String adminWiFiPassF, String wiFiNameF,
-      String wiFiPasswordF) {
-    adminWiFiName = adminWiFiNameF;
-    adminWiFiPass = adminWiFiPassF;
-    wiFiName = wiFiNameF;
-    wiFiPassword = wiFiPasswordF;
+  NetworkActions(NetworkEntity firstAndAdminNetworkDefaultF,
+      NetworkEntity secondNetworkDefaultF) {
+    firstAndAdminNetworkDefault = firstAndAdminNetworkDefaultF;
+    secondNetworkDefault = secondNetworkDefaultF;
   }
 
   ///  This function starts the connection to the requested WiFi
@@ -63,11 +60,14 @@ class NetworkActions {
     String connectedWifiName;
     while (true) {
       connectedWifiName = await getConnectedNetworkName();
-      if (connectedWifiName != adminWiFiName &&
-          (await getAvailableNetworksList()).contains(adminWiFiName)) {
+      if (connectedWifiName != firstAndAdminNetworkDefault.networkName &&
+          (await getAvailableNetworksList())
+              .contains(firstAndAdminNetworkDefault.networkName)) {
         print('Connecting to admin wi-fi');
-        await connectToAdminWiFi(ssid: adminWiFiName, pass: adminWiFiPass);
-      } else if (connectedWifiName == adminWiFiName) {
+        await connectToAdminWiFi(
+            ssid: firstAndAdminNetworkDefault.networkName,
+            pass: firstAndAdminNetworkDefault.networkPass);
+      } else if (connectedWifiName == firstAndAdminNetworkDefault.networkName) {
         final String wiFiDefaultGateway = await getDefaultGateway();
         final String myDeviceIP =
             await getCurrentDeviceIP(defaultGateway: wiFiDefaultGateway);
@@ -79,9 +79,11 @@ class NetworkActions {
       // will try reconnecting to the last network
       else if (connectedWifiName == null ||
           connectedWifiName == '' ||
-          connectedWifiName != wiFiName &&
-              (await getAvailableNetworksList()).contains(wiFiName)) {
-        await connectToWiFi(wiFiName, wiFiPassword);
+          connectedWifiName != secondNetworkDefault.networkName &&
+              (await getAvailableNetworksList())
+                  .contains(secondNetworkDefault.networkName)) {
+        await connectToWiFi(
+            secondNetworkDefault.networkName, secondNetworkDefault.networkPass);
       }
 
       await Future.delayed(

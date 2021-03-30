@@ -2,14 +2,15 @@ import 'package:grpc/grpc.dart';
 import 'package:security_bear_dart/core/helper_methods.dart';
 import 'package:security_bear_dart/features/security_bear/application/usecases/network_actions/network_actions.dart';
 import 'package:security_bear_dart/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/core/NetworkEntity.dart';
 
 /// This class is where all the program start after the main file
 class SecurityBearManagerU {
-  final wifiAdminDefaultName = 'CyBear Jinni';
-  final wifiAdminDefaultPass = 'CyBear Jinni';
+  final NetworkEntity firstAndAdminNetworkDefault =
+      NetworkEntity(networkName: 'CyBear Jinni', networkPass: 'CyBear Jinni');
 
-  final wifiSecondDefaultName = 'CyBear_Jinni';
-  final wifiSecondDefaultPass = 'CyBear_Jinni';
+  final NetworkEntity secondNetworkDefault = NetworkEntity(
+      networkName: 'CyBear_Jinni Jinni', networkPass: 'CyBear_Jinni Jinni');
 
   SecurityBearManagerU() {
     securityBearMainAsync();
@@ -27,8 +28,8 @@ class SecurityBearManagerU {
   ///  This function starts the object
   ///  to manege the state of the device network connection
   Future<void> manegeNetworkConnection() async {
-    final NetworkActions networkActions = NetworkActions(wifiAdminDefaultName,
-        wifiAdminDefaultPass, wifiSecondDefaultName, wifiSecondDefaultPass);
+    final NetworkActions networkActions =
+        NetworkActions(firstAndAdminNetworkDefault, secondNetworkDefault);
 
     await networkActions.connectToAdminWhenExist();
   }

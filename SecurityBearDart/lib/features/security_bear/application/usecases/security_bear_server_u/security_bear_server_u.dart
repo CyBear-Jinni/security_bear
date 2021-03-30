@@ -1,5 +1,6 @@
 import 'package:grpc/src/server/call.dart';
 import 'package:security_bear_dart/features/security_bear/application/usecases/network_actions/network_actions.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/core/NetworkEntity.dart';
 import 'package:security_bear_dart/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
 
 class SecurityBearServerU extends SecurityBearServiceBase {
@@ -15,11 +16,13 @@ class SecurityBearServerU extends SecurityBearServiceBase {
       print('WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
           ' ${wiFiInformationFirstP.wiFiPassword}');
 
-      NetworkActions.adminWiFiName = wiFiInformationFirstP.wiFiName;
-      NetworkActions.adminWiFiPass = wiFiInformationFirstP.wiFiPassword;
+      NetworkActions.firstAndAdminNetworkDefault = NetworkEntity(
+          networkName: wiFiInformationFirstP.wiFiName,
+          networkPass: wiFiInformationFirstP.wiFiPassword);
 
-      NetworkActions.wiFiName = wiFiInformationSecondP.wiFiName;
-      NetworkActions.wiFiPassword = wiFiInformationSecondP.wiFiPassword;
+      NetworkActions.secondNetworkDefault = NetworkEntity(
+          networkName: wiFiInformationSecondP.wiFiName,
+          networkPass: wiFiInformationSecondP.wiFiPassword);
 
       return SBCommendStatus(success: true);
     } catch (e) {
@@ -39,10 +42,12 @@ class SecurityBearServerU extends SecurityBearServiceBase {
     print('WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
         ' ${wiFiInformationFirstP.wiFiPassword}');
 
-    NetworkActions.adminWiFiName = wiFiInformationFirstP.wiFiName;
-    NetworkActions.adminWiFiPass = wiFiInformationFirstP.wiFiPassword;
+    NetworkActions.firstAndAdminNetworkDefault = NetworkEntity(
+        networkName: wiFiInformationFirstP.wiFiName,
+        networkPass: wiFiInformationFirstP.wiFiPassword);
 
-    NetworkActions.wiFiName = wiFiInformationSecondP.wiFiName;
-    NetworkActions.wiFiPassword = wiFiInformationSecondP.wiFiPassword;
+    NetworkActions.secondNetworkDefault = NetworkEntity(
+        networkName: wiFiInformationSecondP.wiFiName,
+        networkPass: wiFiInformationSecondP.wiFiPassword);
   }
 }
