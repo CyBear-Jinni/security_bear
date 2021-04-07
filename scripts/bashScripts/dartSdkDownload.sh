@@ -14,7 +14,7 @@ case ${architecture} in
 		wget "${dartSdkPath}arm64-release.zip"	# For arm 64-bit
     ;; 
     ( "x64" | "x86_64" | "amd64" )
-    	wget  "${dartSdkPath}x64-release.zip"	# For linux intel 64-bit
+    	wget "${dartSdkPath}x64-release.zip"	# For linux intel 64-bit
     ;;
     ( "ia32" | "x86" | "i386"  )
     	wget "${dartSdkPath}ia32-release.zip"	# For linux intel 32-bit
