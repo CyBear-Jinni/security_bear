@@ -35,7 +35,7 @@ class HiveStore extends TokenStore {
   Token read() => _box.get(keyToken) as Token;
 
   @override
-  void write(Token token) => _box.put(keyToken, token);
+  void write(Token? token) => _box.put(keyToken, token);
 
   @override
   void delete() => _box.delete(keyToken);

@@ -3,7 +3,7 @@ import 'package:security_bear_dart/core/hive/hiveAdapters/hive_network_list.dart
 import 'package:security_bear_dart/core/hive/hive_store_d.dart';
 import 'package:security_bear_dart/core/my_singleton.dart';
 import 'package:security_bear_dart/core/system_commands_d/system_commands_manager_d.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/NetworkEntity.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
 
 class HiveD {
   factory HiveD() {
@@ -16,14 +16,14 @@ class HiveD {
 
   static final HiveD _instance = HiveD._privateConstructor();
 
-  String hiveFolderPath;
-  static bool finishedInitializing;
+  String? hiveFolderPath;
+  static bool? finishedInitializing;
   static const String securityBearBoxName = 'SecurityBear';
   static const String cellNetworkNamesBox = 'NetworkNames';
   static const String cellDatabaseInformationInNetworkBox =
       'databaseInformation';
 
-  Future<bool> contractorAsync() async {
+  Future<bool?> contractorAsync() async {
     try {
       if (finishedInitializing == null) {
         final String snapCommonEnvironmentVariablePath =
@@ -35,7 +35,7 @@ class HiveD {
           hiveFolderPath = '$snapCommonEnvironmentVariablePath/hive';
         }
         print('Path of hive: $hiveFolderPath');
-        Hive.init(hiveFolderPath);
+        Hive.init(hiveFolderPath!);
         //
         // Hive.openBox(
         //     smartDeviceBoxName); // TODO: check if need await, it creates error: HiveError: Cannot read, unknown typeId: 34
@@ -50,7 +50,7 @@ class HiveD {
     return finishedInitializing;
   }
 
-  Future<List<NetworkEntity>> getListOfNetworks() async {
+  Future<List<NetworkEntity>?> getListOfNetworks() async {
     try {
       await contractorAsync();
 
@@ -59,7 +59,7 @@ class HiveD {
       final HiveNetworkList hiveNetworkList =
           box.get(cellNetworkNamesBox) as HiveNetworkList;
 
-      return hiveNetworkList?.networksInfoList;
+      return hiveNetworkList.networksInfoList;
     } catch (error) {
       print('error: $error');
     }

@@ -4,13 +4,13 @@ import 'package:security_bear_dart/data_base/cbj_app/protoc_as_dart/cbj_app_conn
 /// Class to manage calls to the CBJApp server
 class CBJAppClient {
   /// Will Send the IP of this device to server in the connected network
-  static Future<bool> SendMyIPToServer(
+  static Future<bool?> SendMyIPToServer(
       String serverIp, String myDeviceIP) async {
     final ClientChannel channel = createCBJAppClient(serverIp);
     final CyBearJinniAppClient stub = CyBearJinniAppClient(channel);
     CBJCommendStatus responseSBCommendStatus = CBJCommendStatus();
 
-    CompInfoSB smartDeviceInfo = CompInfoSB()..compIP = myDeviceIP;
+    final CompInfoSB smartDeviceInfo = CompInfoSB()..compIP = myDeviceIP;
 
     try {
       responseSBCommendStatus =

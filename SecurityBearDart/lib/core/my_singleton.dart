@@ -1,9 +1,9 @@
 import 'package:security_bear_dart/core/my_singleton_helper.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/NetworkEntity.dart';
+import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
 
 class MySingleton {
   factory MySingleton() {
-    return _singleton;
+    return _singleton!;
   }
 
   MySingleton._internal() {
@@ -12,10 +12,10 @@ class MySingleton {
     getCurrentUserName();
   }
 
-  static final MySingleton _singleton = MySingleton._internal();
-  static List<NetworkEntity> smartWiFiList;
-  static Future<String> _deviceUid;
-  static Future<String> _currentUserName;
+  static final MySingleton? _singleton = MySingleton._internal();
+  static List<NetworkEntity>? smartWiFiList;
+  static Future<String>? _deviceUid;
+  static Future<String>? _currentUserName;
 
   static Future<String> getUuid() => _deviceUid ??= MySingletonHelper.getUuid();
 
@@ -27,10 +27,10 @@ class MySingleton {
   }
 
   static void addToNetworksList(NetworkEntity smartNetworksVal) {
-    smartWiFiList.add(smartNetworksVal);
+    smartWiFiList!.add(smartNetworksVal);
   }
 
-  static List<NetworkEntity> getSmartNetworksList() => smartWiFiList;
+  static List<NetworkEntity>? getSmartNetworksList() => smartWiFiList;
 }
 
 class FirebaseAccountInformationFlutter {
