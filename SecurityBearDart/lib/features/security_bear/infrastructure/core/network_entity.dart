@@ -1,6 +1,6 @@
 class NetworkEntity {
-  String networkName;
-  String networkPass;
-
   NetworkEntity({this.networkName, this.networkPass});
+
+  String? networkName;
+  String? networkPass;
 }

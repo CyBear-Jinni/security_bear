@@ -58,7 +58,7 @@ class CommonBashCommandsD implements SystemCommandsBaseClassD {
   }
 
   @override
-  Future<String> getFileContent(fileFullPath) async {
+  Future<String?> getFileContent(fileFullPath) async {
     final String fileContent =
         await Process.run('cat', <String>[fileFullPath.toString()])
             .then((ProcessResult result) {
@@ -72,7 +72,7 @@ class CommonBashCommandsD implements SystemCommandsBaseClassD {
   }
 
   @override
-  Future<String> getDeviceConfiguration() {
+  Future<String?> getDeviceConfiguration() {
     return getFileContent('/etc/cbjinni/deviceConfigs.txt');
   }
 }

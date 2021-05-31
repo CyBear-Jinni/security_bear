@@ -23,29 +23,29 @@ class SystemCommandsManager {
     }
   }
 
-  SystemCommandsBaseClassD systemCommandsBaseClassD;
+  SystemCommandsBaseClassD? systemCommandsBaseClassD;
 
   Future<String> getCurrentUserName() {
-    return systemCommandsBaseClassD.getCurrentUserName();
+    return systemCommandsBaseClassD!.getCurrentUserName();
   }
 
   Future<String> getDeviceHostName() {
-    return systemCommandsBaseClassD.getDeviceHostName();
+    return systemCommandsBaseClassD!.getDeviceHostName();
   }
 
-  Future<String> getFileContent(fileFullPath) {
-    return systemCommandsBaseClassD.getFileContent(fileFullPath);
+  Future<String?> getFileContent(fileFullPath) {
+    return systemCommandsBaseClassD!.getFileContent(fileFullPath);
   }
 
   Future<String> getUuidOfCurrentDevice() {
-    return systemCommandsBaseClassD.getUuidOfCurrentDevice();
+    return systemCommandsBaseClassD!.getUuidOfCurrentDevice();
   }
 
-  Future<String> getDeviceConfiguration() {
-    return systemCommandsBaseClassD.getDeviceConfiguration();
+  Future<String?> getDeviceConfiguration() {
+    return systemCommandsBaseClassD!.getDeviceConfiguration();
   }
 
-  Future<String> getRaspberryPiDeviceVersion() {
+  Future<String?> getRaspberryPiDeviceVersion() {
     return BashCommandsForRaspberryPi.getRaspberryPiDeviceVersion();
   }
 
