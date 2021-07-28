@@ -7,14 +7,14 @@
 
 </div>
 
-[<div align="center"><img alt="CyBear Jinni image" height="400" src="https://user-images.githubusercontent.com/9304740/97423649-3ab85300-1918-11eb-8c2e-50ce0445c457.png">](https://github.com/CyBear-Jinni/CBJ_Smart-Home)
+[<div align="center"><img alt="CyBear Jinni image" height="400" src="https://user-images.githubusercontent.com/9304740/97423649-3ab85300-1918-11eb-8c2e-50ce0445c457.png">](https://github.com/CyBear-Jinni/cbj_smart-home)
 </div>
 
 # Welcome!
 
 The software is written in [dart](https://dart.dev) and in charge of allowing easy and secure way to connect to your computer for maintenance.
 
-The use of the software requires [CyBear Jinni App](https://github.com/CyBear-Jinni/CBJ_App) and is part of [CyBear Jinni Smart Home](https://github.com/CyBear-Jinni/CBJ_Smart-Home) system.
+The use of the software requires [CyBear Jinni App](https://github.com/CyBear-Jinni/cbj_app) and is part of [CyBear Jinni Smart Home](https://github.com/CyBear-Jinni/cbj_smart-home) system.
 
 # Social Media Links
 
