@@ -1,9 +1,27 @@
 # Defines a default set of lint rules enforced for
 # projects at Google. For details and rationale,
 # see https://github.com/dart-lang/pedantic#enabled-lints.
+#include: package:pedantic/analysis_options.yaml
 
 # lint analysis
 include: package:lint/analysis_options.yaml
+
+
+analyzer:
+  errors:
+    missing_required_param: error
+    missing_return: error
+    must_be_immutable: error
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.pb.dart"
+    - "**/*.pbenum.dart"
+
+    - "**/*.pbgrpc.dart"
+    - "**/*.pbjson.dart"
+    - "**/*.gr.dart"
+    - "lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/**"
 
 linter:
   rules:
@@ -18,7 +36,5 @@ linter:
 
     # Good packages document everything
     public_member_api_docs: true
-
-    always_specify_types: true
 
     lines_longer_than_80_chars: true
