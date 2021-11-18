@@ -17,8 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      working-directory: SecurityBearDart
+      working-directory: SecurityBear
       run: pub get
     - name: Run tests
-      working-directory: SecurityBearDart
+      working-directory: SecurityBear
       run: pub run test
