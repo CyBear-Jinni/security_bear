@@ -1,7 +1,7 @@
 name: security_bear_dart
 description: Easy and secure way to connect to your device for maintenance.
 version: 1.1.1
-homepage: https://github.com/CyBear-Jinni/Security-Bear
+homepage: https://github.com/CyBear-Jinni/security_bear
 
 environment:
   sdk: ^2.14.3
