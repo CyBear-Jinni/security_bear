@@ -5,9 +5,11 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/NetworkManagerDart/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/NetworkManagerDart/build" />
-      <excludeFolder url="file://$MODULE_DIR$/SecurityBearDart/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/SecurityBearDart/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/SecurityBearDart/build" />
+      <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
