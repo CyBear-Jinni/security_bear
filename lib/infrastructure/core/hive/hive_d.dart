@@ -1,9 +1,9 @@
 import 'package:hive/hive.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
-import 'package:security_bear_dart/infrastructure/core/hive/hiveAdapters/hive_network_list.dart';
-import 'package:security_bear_dart/infrastructure/core/hive/hive_store_d.dart';
-import 'package:security_bear_dart/infrastructure/core/my_singleton.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/infrastructure/core/hive/hiveAdapters/hive_network_list.dart';
+import 'package:security_bear/infrastructure/core/hive/hive_store_d.dart';
+import 'package:security_bear/infrastructure/core/my_singleton.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
 
 class HiveD {
   factory HiveD() {

@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:security_bear_dart/domain/local_db/i_local_db_repository.dart';
-import 'package:security_bear_dart/domain/local_db/local_db_failures.dart';
-import 'package:security_bear_dart/infrastructure/core/my_singleton.dart';
-import 'package:security_bear_dart/infrastructure/local_db/hive_objects/hub_entity_hive_model.dart';
-import 'package:security_bear_dart/infrastructure/local_db/hive_objects/remote_pipes_hive_model.dart';
-import 'package:security_bear_dart/utils.dart';
+import 'package:security_bear/domain/local_db/i_local_db_repository.dart';
+import 'package:security_bear/domain/local_db/local_db_failures.dart';
+import 'package:security_bear/infrastructure/core/my_singleton.dart';
+import 'package:security_bear/infrastructure/local_db/hive_objects/hub_entity_hive_model.dart';
+import 'package:security_bear/infrastructure/local_db/hive_objects/remote_pipes_hive_model.dart';
+import 'package:security_bear/utils.dart';
 
 @LazySingleton(as: ILocalDbRepository)
 class HiveRepository extends ILocalDbRepository {

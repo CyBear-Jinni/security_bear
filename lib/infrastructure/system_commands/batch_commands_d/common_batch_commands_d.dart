@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_base_class_d.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_base_class_d.dart';
 
 class CommonBatchCommandsD implements SystemCommandsBaseClassD {
   @override

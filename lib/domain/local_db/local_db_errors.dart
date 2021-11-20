@@ -1,4 +1,4 @@
-import 'package:security_bear_dart/domain/local_db/local_db_failures.dart';
+import 'package:security_bear/domain/local_db/local_db_failures.dart';
 
 class LocalDbUnexpectedValueError extends Error {
   LocalDbUnexpectedValueError(this.userValueFailure);

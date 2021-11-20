@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:security_bear_dart/infrastructure/core/shared_variables.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/bash_commands_d/bash_commands_for_raspberry_pi_d.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/bash_commands_d/common_bash_commands_d.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/batch_commands_d/common_batch_commands_d.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_base_class_d.dart';
+import 'package:security_bear/infrastructure/core/shared_variables.dart';
+import 'package:security_bear/infrastructure/system_commands/bash_commands_d/bash_commands_for_raspberry_pi_d.dart';
+import 'package:security_bear/infrastructure/system_commands/bash_commands_d/common_bash_commands_d.dart';
+import 'package:security_bear/infrastructure/system_commands/batch_commands_d/common_batch_commands_d.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_base_class_d.dart';
 
 class SystemCommandsManager {
   SystemCommandsManager() {

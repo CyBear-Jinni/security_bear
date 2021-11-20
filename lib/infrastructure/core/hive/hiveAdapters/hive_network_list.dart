@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 
 part 'hive_network_list.g.dart';
 

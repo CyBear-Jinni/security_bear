@@ -3,8 +3,8 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
-import 'package:security_bear_dart/infrastructure/gen/cbj_app/cbj_app_client.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/infrastructure/gen/cbj_app/cbj_app_client.dart';
 
 ///  Network action class used for
 ///  controlling the program in the different network status

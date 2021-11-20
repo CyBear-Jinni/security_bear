@@ -1,7 +1,7 @@
 import 'package:firedart/firedart.dart';
 import 'package:hive/hive.dart';
-import 'package:security_bear_dart/infrastructure/core/my_singleton.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:security_bear/infrastructure/core/my_singleton.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
 
 /// Stores tokens using a Hive store.
 /// Depends on the Hive plugin: https://pub.dev/packages/hive

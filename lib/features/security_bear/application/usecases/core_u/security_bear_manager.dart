@@ -1,8 +1,8 @@
 import 'package:grpc/grpc.dart';
-import 'package:security_bear_dart/features/security_bear/application/usecases/network_actions/network_actions.dart';
-import 'package:security_bear_dart/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
-import 'package:security_bear_dart/infrastructure/core/helper_methods.dart';
+import 'package:security_bear/features/security_bear/application/usecases/network_actions/network_actions.dart';
+import 'package:security_bear/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/infrastructure/core/helper_methods.dart';
 
 /// This class is where all the program start after the main file
 class SecurityBearManagerU {

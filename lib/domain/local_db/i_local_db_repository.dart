@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:security_bear_dart/domain/local_db/local_db_failures.dart';
+import 'package:security_bear/domain/local_db/local_db_failures.dart';
 
 abstract class ILocalDbRepository {
   String remotePipesBoxName = 'remotePipesBox';

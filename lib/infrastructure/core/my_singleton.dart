@@ -1,5 +1,5 @@
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
-import 'package:security_bear_dart/infrastructure/core/my_singleton_helper.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/infrastructure/core/my_singleton_helper.dart';
 
 class MySingleton {
   factory MySingleton() {

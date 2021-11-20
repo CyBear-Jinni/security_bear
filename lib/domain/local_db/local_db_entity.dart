@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:security_bear_dart/domain/local_db/local_db_failures.dart';
-import 'package:security_bear_dart/domain/local_db/local_db_value_objects.dart';
+import 'package:security_bear/domain/local_db/local_db_failures.dart';
+import 'package:security_bear/domain/local_db/local_db_value_objects.dart';
 
 part 'local_db_entity.freezed.dart';
 

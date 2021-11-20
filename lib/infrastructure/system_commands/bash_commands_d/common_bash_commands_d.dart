@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:security_bear_dart/infrastructure/core/my_singleton.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_base_class_d.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:security_bear/infrastructure/core/my_singleton.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_base_class_d.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
 
 class CommonBashCommandsD implements SystemCommandsBaseClassD {
   @override

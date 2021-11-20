@@ -1,6 +1,6 @@
-import 'package:security_bear_dart/domain/generic_devices/device_type_enums.dart';
-import 'package:security_bear_dart/infrastructure/system_commands/system_commands_manager_d.dart';
-import 'package:security_bear_dart/utils.dart';
+import 'package:security_bear/domain/generic_devices/device_type_enums.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:security_bear/utils.dart';
 
 ///  This class save all the configuration of the pins per device,
 ///  every device have different pin for each task,
