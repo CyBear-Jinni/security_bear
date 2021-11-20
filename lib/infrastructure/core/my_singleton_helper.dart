@@ -1,4 +1,4 @@
-import 'package:security_bear_dart/core/system_commands_d/system_commands_manager_d.dart';
+import 'package:security_bear_dart/infrastructure/system_commands/system_commands_manager_d.dart';
 
 class MySingletonHelper {
   static Future<String> getUuid() {
@@ -9,5 +9,10 @@ class MySingletonHelper {
   static Future<String> getCurrentUserName() {
     final SystemCommandsManager systemCommandsManager = SystemCommandsManager();
     return systemCommandsManager.getCurrentUserName();
+  }
+
+  static Future<String> getLocalDbPath() {
+    final SystemCommandsManager systemCommandsManager = SystemCommandsManager();
+    return systemCommandsManager.getLocalDbPath();
   }
 }

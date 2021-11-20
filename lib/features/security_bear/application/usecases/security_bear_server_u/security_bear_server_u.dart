@@ -1,28 +1,38 @@
+import 'dart:io';
+
 import 'package:grpc/src/server/call.dart';
 import 'package:security_bear_dart/features/security_bear/application/usecases/network_actions/network_actions.dart';
 import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:security_bear_dart/infrastructure/gen/security_bear_server_d/proto_gen_date.dart';
+import 'package:security_bear_dart/infrastructure/gen/security_bear_server_d/protoc_as_dart/security_bear_connections.pbgrpc.dart';
+import 'package:security_bear_dart/utils.dart';
 
 class SecurityBearServerU extends SecurityBearServiceBase {
   @override
   Future<SBCommendStatus> setWiFiInformation(
-      ServiceCall call, SecurityBearSetup request) async {
+    ServiceCall call,
+    SecurityBearSetup request,
+  ) async {
     try {
       print('Set WiFi information');
 
       final WiFiInformation wiFiInformationFirstP = request.wiFiFirstPriority;
       final WiFiInformation wiFiInformationSecondP = request.wiFiSecondPriority;
 
-      print('WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
-          ' ${wiFiInformationFirstP.wiFiPassword}');
+      print(
+        'WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
+        ' ${wiFiInformationFirstP.wiFiPassword}',
+      );
 
       NetworkActions.firstAndAdminNetworkDefault = NetworkEntity(
-          networkName: wiFiInformationFirstP.wiFiName,
-          networkPass: wiFiInformationFirstP.wiFiPassword);
+        networkName: wiFiInformationFirstP.wiFiName,
+        networkPass: wiFiInformationFirstP.wiFiPassword,
+      );
 
       NetworkActions.secondNetworkDefault = NetworkEntity(
-          networkName: wiFiInformationSecondP.wiFiName,
-          networkPass: wiFiInformationSecondP.wiFiPassword);
+        networkName: wiFiInformationSecondP.wiFiName,
+        networkPass: wiFiInformationSecondP.wiFiPassword,
+      );
 
       return SBCommendStatus(success: true);
     } catch (e) {
@@ -40,19 +50,46 @@ class SecurityBearServerU extends SecurityBearServiceBase {
       final WiFiInformation wiFiInformationSecondP =
           securityBearSetup.wiFiSecondPriority;
 
-      print('WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
-          ' ${wiFiInformationFirstP.wiFiPassword}');
+      print(
+        'WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
+        ' ${wiFiInformationFirstP.wiFiPassword}',
+      );
 
       NetworkActions.firstAndAdminNetworkDefault = NetworkEntity(
-          networkName: wiFiInformationFirstP.wiFiName,
-          networkPass: wiFiInformationFirstP.wiFiPassword);
+        networkName: wiFiInformationFirstP.wiFiName,
+        networkPass: wiFiInformationFirstP.wiFiPassword,
+      );
 
       NetworkActions.secondNetworkDefault = NetworkEntity(
-          networkName: wiFiInformationSecondP.wiFiName,
-          networkPass: wiFiInformationSecondP.wiFiPassword);
+        networkName: wiFiInformationSecondP.wiFiName,
+        networkPass: wiFiInformationSecondP.wiFiPassword,
+      );
       return SBCommendStatus(success: true);
     } catch (e) {
       return SBCommendStatus(success: false);
     }
+  }
+
+  @override
+  Future<CompSecurityBearInfo> getCompSecurityBearInfo(
+    ServiceCall call,
+    CompSecurityBearInfo request,
+  ) async {
+    logger.i('Hub info got requested');
+
+    final CbjSecurityBearIno cbjSecurityBearIno = CbjSecurityBearIno(
+      deviceName: 'cbj Hub',
+      protoLastGenDate: securityBearServerProtocGenDate,
+    );
+
+    final CompSecurityBearSpecs compSecurityBearSpecs = CompSecurityBearSpecs(
+      compOs: Platform.operatingSystem,
+    );
+
+    final CompSecurityBearInfo compSecurityBearInfo = CompSecurityBearInfo(
+      cbjInfo: cbjSecurityBearIno,
+      compSpecs: compSecurityBearSpecs,
+    );
+    return compSecurityBearInfo;
   }
 }

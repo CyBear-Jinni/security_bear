@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:security_bear_dart/core/system_commands_d/system_commands_base_class_d.dart';
+import 'package:security_bear_dart/infrastructure/system_commands/system_commands_base_class_d.dart';
 
 class CommonBatchCommandsD implements SystemCommandsBaseClassD {
   @override
@@ -89,5 +89,20 @@ class CommonBatchCommandsD implements SystemCommandsBaseClassD {
       return result.stdout.toString();
     });
     return driveLetter.substring(0, driveLetter.indexOf('\r'));
+  }
+
+  @override
+  Future<String> getAllEtcReleaseFilesText() {
+    //TODO: add implementation, for now will return getDeviceHostName
+    return getDeviceHostName();
+  }
+
+  @override
+  Future<String> getLocalDbPath() async {
+    final String cbjFullPath = (await getCurrentDriveLetter()) +
+        r'\Users\' +
+        (await getCurrentUserName()) +
+        r'\Documents\cbjinni\'; // Will only work if the program located in the os driver
+    return cbjFullPath;
   }
 }
