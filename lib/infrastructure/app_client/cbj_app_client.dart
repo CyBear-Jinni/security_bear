@@ -5,7 +5,7 @@ import 'package:security_bear/utils.dart';
 /// Class to manage calls to the CBJApp server
 class CBJAppClient {
   /// Will Send the IP of this device to server in the connected network
-  static Future<bool?> SendMyIPToServer(
+  static Future<bool?> sendMyIPToServer(
     String serverIp,
     String myDeviceIP,
   ) async {

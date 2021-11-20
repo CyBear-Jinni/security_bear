@@ -21,7 +21,7 @@ analyzer:
     - "**/*.pbgrpc.dart"
     - "**/*.pbjson.dart"
     - "**/*.gr.dart"
-    - "lib/features/security_bear/infrastructure/datasources/security_bear_server_d/protoc_as_dart/**"
+    - "lib/features/security_bear/infrastructure/gen/**"
 
 linter:
   rules:
