@@ -3,9 +3,13 @@ import 'package:security_bear/features/security_bear/application/usecases/networ
 import 'package:security_bear/features/security_bear/application/usecases/security_bear_server_u/security_bear_server_u.dart';
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 import 'package:security_bear/infrastructure/core/helper_methods.dart';
+import 'package:security_bear/injection.dart';
 
 /// This class is where all the program start after the main file
 class SecurityBearManagerU {
+  /// Port for the security bear server to get opened on
+  static late int securityBearServerPort;
+
   final NetworkEntity firstAndAdminNetworkDefault =
       NetworkEntity(networkName: 'CyBear Jinni', networkPass: 'CyBear Jinni');
 
@@ -40,7 +44,12 @@ class SecurityBearManagerU {
   ///  This function will create the server in case there is connection
   Future<void> createServer() async {
     final server = Server([SecurityBearServerU()]);
-    await server.serve(port: 50052);
+    if (currentEnv == Env.dev) {
+      securityBearServerPort = 60052;
+    } else {
+      securityBearServerPort = 50052;
+    }
+    await server.serve(port: securityBearServerPort);
     print('Server listening on port ${server.port}...');
   }
 }

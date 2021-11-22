@@ -6,9 +6,7 @@ import 'package:security_bear/injection.dart';
 import 'package:security_bear/utils.dart';
 
 main(List<String> arguments) async {
-  await configureInjection(Env.prod);
-
-  logger.w('Welcome to Security Bear');
+  configureInjection(Env.prod);
 
   if (arguments.isEmpty) {
     SharedVariables('.');
