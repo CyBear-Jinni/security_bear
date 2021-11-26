@@ -44,10 +44,10 @@ class SecurityBearManagerU {
   ///  This function will create the server in case there is connection
   Future<void> createServer() async {
     final server = Server([SecurityBearServerU()]);
-    if (currentEnv == Env.dev) {
-      securityBearServerPort = 60052;
-    } else {
+    if (currentEnv == Env.prod) {
       securityBearServerPort = 50052;
+    } else {
+      securityBearServerPort = 60052;
     }
     await server.serve(port: securityBearServerPort);
     print('Server listening on port ${server.port}...');

@@ -80,6 +80,7 @@ class SecurityBearServerU extends SecurityBearServiceBase {
     final CbjSecurityBearIno cbjSecurityBearIno = CbjSecurityBearIno(
       deviceName: 'cbj Hub',
       protoLastGenDate: securityBearServerProtocGenDate,
+      dartSdkVersion: Platform.version,
     );
 
     final CompSecurityBearSpecs compSecurityBearSpecs = CompSecurityBearSpecs(
