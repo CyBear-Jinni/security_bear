@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 import 'package:security_bear/infrastructure/app_client/cbj_app_client.dart';
+import 'package:security_bear/utils.dart';
 
 ///  Network action class used for
 ///  controlling the program in the different network status
@@ -21,7 +22,7 @@ class NetworkActions {
   ///  This function starts the connection to the requested WiFi
   ///  if the internet connection is down
   Future<bool?> isConnectedToTheInternet() async {
-    print('Status is ${await isConnectedToInternet()}');
+    logger.i('Status is ${await isConnectedToInternet()}');
     bool processLocation = false;
     //  true = Started the process to connect to the admin WiFi,
     //  false = waiting for the internet to go down
@@ -31,10 +32,10 @@ class NetworkActions {
     listener.listen((InternetConnectionStatus status) async {
       final bool isConnected = connectionStatusToBool(status);
       if (isConnected) {
-        print('Connected to the Internet');
+        logger.i('Connected to the Internet');
         processLocation = false;
       } else {
-        print('Does not connected to the Internet');
+        logger.w('Does not connected to the Internet');
         processLocation = true;
         await Future.delayed(
           const Duration(seconds: 15),
@@ -51,7 +52,7 @@ class NetworkActions {
         //  TODO: Check in between if connection returned with processLocation var
         //  TODO: Connect to admin wi-fi
 
-        print('Finally');
+        logger.v('Finally');
       }
     });
   }
@@ -64,7 +65,10 @@ class NetworkActions {
       if (connectedWifiName != firstAndAdminNetworkDefault!.networkName &&
           (await getAvailableNetworksList())
               .contains(firstAndAdminNetworkDefault!.networkName)) {
-        print('Connecting to admin wi-fi');
+        logger.i(
+          'Connecting to admin wi-fi named '
+          '${firstAndAdminNetworkDefault!.networkName}',
+        );
         await connectToAdminWiFi(
           ssid: firstAndAdminNetworkDefault!.networkName!,
           pass: firstAndAdminNetworkDefault!.networkPass!,
@@ -106,7 +110,7 @@ class NetworkActions {
     String pass = '123',
   }) async {
     final String connectingResult = await connectToWiFi(ssid, pass);
-    print('This is connection result: $connectingResult');
+    logger.i('This is connection result: $connectingResult');
     // TODO: fix if connectingResult is 'Error: Connection activation failed: (60) New connection activation was enqueued.'
     // Need to delete it with 'nmcli con delete <SSID>' and than can connect again
   }
@@ -142,7 +146,7 @@ class NetworkActions {
       //  nmcli -t -f ssid dev wifi
       List<String> wifiResults = results.stdout.toString().split('\n');
       wifiResults = wifiResults.sublist(0, wifiResults.length - 1);
-      print(wifiResults.toString());
+      logger.i('Found the following WiFi networks ${wifiResults.toString()}');
       return wifiResults;
     });
   }
@@ -162,7 +166,7 @@ class NetworkActions {
       //  sudo nmcli dev wifi connect ssid password pass
       ProcessResult results,
     ) {
-      print('Conected successfully to: ${results.stdout}');
+      logger.i('Connected successfully to: ${results.stdout}');
       return results.stdout.toString();
     });
     //    Can iwconfig also be used but
@@ -173,7 +177,7 @@ class NetworkActions {
   ///  if there is a connection than return network name
   Future<String> getConnectedNetworkName() async {
     return Process.run('iwgetid', <String>['-r']).then((ProcessResult results) {
-      print('Currently connected to: ${results.stdout}');
+      logger.i('Currently connected to: ${results.stdout}');
       return results.stdout.toString().replaceAll('\n', '');
     });
 
@@ -213,7 +217,7 @@ class NetworkActions {
         currentIP = currentIPList[Random().nextInt(currentIPList.length)];
       }
     }
-    print('Device IP is: $currentIP' != null ? currentIP : 'NULL');
+    logger.i('Device IP is: $currentIP' != null ? currentIP : 'NULL');
     return currentIP;
   }
 

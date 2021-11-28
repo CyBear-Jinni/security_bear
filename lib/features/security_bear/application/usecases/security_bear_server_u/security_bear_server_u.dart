@@ -14,15 +14,10 @@ class SecurityBearServerU extends SecurityBearServiceBase {
     SecurityBearSetup request,
   ) async {
     try {
-      print('Set WiFi information');
+      logger.v('Set WiFi information');
 
       final WiFiInformation wiFiInformationFirstP = request.wiFiFirstPriority;
       final WiFiInformation wiFiInformationSecondP = request.wiFiSecondPriority;
-
-      print(
-        'WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
-        ' ${wiFiInformationFirstP.wiFiPassword}',
-      );
 
       NetworkActions.firstAndAdminNetworkDefault = NetworkEntity(
         networkName: wiFiInformationFirstP.wiFiName,
@@ -32,6 +27,13 @@ class SecurityBearServerU extends SecurityBearServiceBase {
       NetworkActions.secondNetworkDefault = NetworkEntity(
         networkName: wiFiInformationSecondP.wiFiName,
         networkPass: wiFiInformationSecondP.wiFiPassword,
+      );
+
+      logger.i(
+        'First WiFi name: ${wiFiInformationFirstP.wiFiName}\n'
+        'First WiFi password: ${wiFiInformationFirstP.wiFiPassword}\n\n'
+        'Second WiFi name: ${wiFiInformationSecondP.wiFiName}\n'
+        'SecondWiFi password: ${wiFiInformationSecondP.wiFiPassword}',
       );
 
       return SBCommendStatus(success: true);

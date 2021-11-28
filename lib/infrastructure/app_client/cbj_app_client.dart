@@ -20,7 +20,7 @@ class CBJAppClient {
           await stub.cBJAppGetSmartDeviceInformation(smartDeviceInfo);
 
       logger
-          .w('Greeter client received: ${responseSBCommendStatus.toString()}');
+          .i('Greeter client received: ${responseSBCommendStatus.toString()}');
 //      await channel.shutdown();
       return Future.value(responseSBCommendStatus.success);
     } catch (e) {
