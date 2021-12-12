@@ -1,1 +1,1 @@
-const appClientProtocGenDate = '06/12/21';
+const appClientProtocGenDate = '12/12/21';
