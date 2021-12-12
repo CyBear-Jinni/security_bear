@@ -23,9 +23,11 @@ class HiveStore extends TokenStore {
 //    print('Path of hive: ' + hiveFolderPath);
     Hive.init(hiveFolderPath);
 //     Hive.registerAdapter(TokenAdapter());
-    final Box box = await Hive.openBox('auth_store',
-        compactionStrategy: (int entries, int deletedEntries) =>
-            deletedEntries > 50);
+    final Box box = await Hive.openBox(
+      'auth_store',
+      compactionStrategy: (int entries, int deletedEntries) =>
+          deletedEntries > 50,
+    );
     return HiveStore._internal(box);
   }
 
