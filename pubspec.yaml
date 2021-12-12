@@ -38,10 +38,10 @@ dependencies:
   process_run: ^0.12.2+2
   # Provides runtime support for a Dart implementation of protobufs.
   protobuf: ^2.0.0
-  # Provides parse, inspect, and manipulate stack traces
-  stack_trace: ^1.10.0
   # Extends the capabilities of Dart Streams and StreamControllers.
   rxdart: ^0.27.2
+  # Provides parse, inspect, and manipulate stack traces
+  stack_trace: ^1.10.0
   # Simple, fast generation of RFC4122 UUIDs.
   uuid: ^3.0.5
 
