@@ -1,7 +1,9 @@
+import 'package:security_bear/utils.dart';
+
 class SharedVariables {
   SharedVariables(String projectRootDirectoryPath) {
     _projectRootDirectoryPath = projectRootDirectoryPath;
-    print('PATH: $_projectRootDirectoryPath');
+    logger.i('PATH: $_projectRootDirectoryPath');
   }
 
   ///  Save the location of all the files that were created during the snapcraft

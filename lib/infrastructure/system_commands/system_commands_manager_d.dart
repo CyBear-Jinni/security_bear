@@ -5,21 +5,25 @@ import 'package:security_bear/infrastructure/system_commands/bash_commands_d/bas
 import 'package:security_bear/infrastructure/system_commands/bash_commands_d/common_bash_commands_d.dart';
 import 'package:security_bear/infrastructure/system_commands/batch_commands_d/common_batch_commands_d.dart';
 import 'package:security_bear/infrastructure/system_commands/system_commands_base_class_d.dart';
+import 'package:security_bear/utils.dart';
 
+/// Execute commands natively on the running os
 class SystemCommandsManager {
+  /// Detect current os and set the suitable os object to use when executing
+  /// commands
   SystemCommandsManager() {
     if (Platform.isLinux) {
-      print('Linux platform detected');
+      logger.i('Linux platform detected');
       systemCommandsBaseClassD = CommonBashCommandsD();
     } else if (Platform.isWindows) {
-      print('Windows platform detected');
+      logger.i('Windows platform detected');
       systemCommandsBaseClassD = CommonBatchCommandsD();
     } else if (Platform.isMacOS) {
-      print('Mac os is currently not supported');
-      throw ('Mac os is currently not supported');
+      logger.i('Mac os is currently not supported');
+      throw 'Mac os is currently not supported';
     } else {
-      print('${Platform.operatingSystem} os is not supported');
-      throw ('${Platform.operatingSystem} os is not supported');
+      logger.w('${Platform.operatingSystem} os is not supported');
+      throw '${Platform.operatingSystem} os is not supported';
     }
   }
 

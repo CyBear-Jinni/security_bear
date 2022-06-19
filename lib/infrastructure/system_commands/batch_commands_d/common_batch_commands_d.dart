@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:security_bear/infrastructure/system_commands/system_commands_base_class_d.dart';
+import 'package:security_bear/utils.dart';
 
 class CommonBatchCommandsD implements SystemCommandsBaseClassD {
   @override
@@ -65,8 +66,9 @@ class CommonBatchCommandsD implements SystemCommandsBaseClassD {
       fileContent = await getFileContent('$fileFullPath.txt');
     }
     if (fileContent.isEmpty) {
-      print(
-          'Config file does not exist or empty, path searching: $fileFullPath');
+      logger.i(
+        'Config file does not exist or empty, path searching: $fileFullPath',
+      );
       return '';
     }
     return fileContent.substring(0, fileContent.indexOf('\r'));

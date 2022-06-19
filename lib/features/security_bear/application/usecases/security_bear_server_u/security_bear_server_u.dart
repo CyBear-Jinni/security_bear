@@ -52,7 +52,7 @@ class SecurityBearServerU extends SecurityBearServiceBase {
       final WiFiInformation wiFiInformationSecondP =
           securityBearSetup.wiFiSecondPriority;
 
-      print(
+      logger.i(
         'WiFi name: ${wiFiInformationFirstP.wiFiName}, WiFi password:'
         ' ${wiFiInformationFirstP.wiFiPassword}',
       );
