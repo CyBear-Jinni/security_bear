@@ -4,6 +4,7 @@ import 'package:security_bear/infrastructure/core/hive/hiveAdapters/hive_network
 import 'package:security_bear/infrastructure/core/hive/hive_store_d.dart';
 import 'package:security_bear/infrastructure/core/my_singleton.dart';
 import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:security_bear/utils.dart';
 
 class HiveD {
   factory HiveD() {
@@ -35,8 +36,8 @@ class HiveD {
         } else {
           hiveFolderPath = '$snapCommonEnvironmentVariablePath/hive';
         }
-        print('Path of hive: $hiveFolderPath');
-        Hive.init(hiveFolderPath!);
+        logger.i('Path of hive: $hiveFolderPath');
+        Hive.init(hiveFolderPath);
         //
         // Hive.openBox(
         //     smartDeviceBoxName); // TODO: check if need await, it creates error: HiveError: Cannot read, unknown typeId: 34
@@ -46,7 +47,7 @@ class HiveD {
         finishedInitializing = true;
       }
     } catch (error) {
-      print('error: $error');
+      logger.e('error: $error');
     }
     return finishedInitializing;
   }
@@ -62,7 +63,7 @@ class HiveD {
 
       return hiveNetworkList.networksInfoList;
     } catch (error) {
-      print('error: $error');
+      logger.e('error: $error');
     }
     return null;
   }
@@ -93,10 +94,10 @@ class HiveD {
         ..networksInfoList = networkList;
 
       await box.put(cellNetworkNamesBox, hiveNetworkList).catchError((a) {
-        print('Error is: $a');
+        logger.e('Error is: $a');
       });
     } catch (error) {
-      print('error: $error');
+      logger.e('error: $error');
     }
     return;
   }

@@ -4,6 +4,7 @@ import 'package:security_bear/features/security_bear/application/usecases/securi
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 import 'package:security_bear/infrastructure/core/helper_methods.dart';
 import 'package:security_bear/injection.dart';
+import 'package:security_bear/utils.dart';
 
 /// This class is where all the program start after the main file
 class SecurityBearManagerU {
@@ -21,7 +22,7 @@ class SecurityBearManagerU {
   }
 
   Future<void> securityBearMainAsync() async {
-    print('Device local IP: ${await getIps()}');
+    logger.i('Device local IP: ${await getIps()}');
 
     createServer();
     connectToDatabase();
@@ -50,6 +51,6 @@ class SecurityBearManagerU {
       securityBearServerPort = 60052;
     }
     await server.serve(port: securityBearServerPort);
-    print('Server listening on port ${server.port}...');
+    logger.i('Server listening on port ${server.port}...');
   }
 }
