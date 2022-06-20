@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:security_bear/utils.dart';
+
 class BashCommandsForRaspberryPi {
   static Future<String?> getRaspberryPiDeviceVersion() async {
     String piVersion = await Process.run('cat', <String>['/proc/cpuinfo'])
@@ -12,7 +14,7 @@ class BashCommandsForRaspberryPi {
     }
     piVersion = piVersion.substring(piVersion.indexOf('Model'));
 
-    print('This is the Pi Version: $piVersion');
+    logger.i('This is the Pi Version: $piVersion');
 
     piVersion = piVersion.substring(piVersion.indexOf(':') + 2);
 
