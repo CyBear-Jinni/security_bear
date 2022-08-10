@@ -15,21 +15,21 @@ dependencies:
   equatable: ^2.0.3
   firedart: ^0.9.0+1
   # Annotations for freezed
-  freezed_annotation: ^2.0.3
+  freezed_annotation: ^2.1.0
   # For the injection, allow accessing an object from anywhere in an App
   get_it: ^7.2.0
   # High performance, open-source universal RPC framework
   grpc: ^3.0.2
   # Lightweight and blazing fast key-value database
-  hive: ^2.2.2
+  hive: ^2.2.3
   # Convenient code generator for get_it
   injectable: ^1.5.3
   # Checks for an internet connection by opening a socket
   internet_connection_checker: ^0.0.1+4
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
-  json_annotation: ^4.5.0
+  json_annotation: ^4.6.0
   # Dart Build System builders for handling JSON.
-  json_serializable: ^6.2.0
+  json_serializable: ^6.3.1
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^0.10.0
   # Small, easy to use and extensible logger which prints beautiful logs.
@@ -39,7 +39,7 @@ dependencies:
   # Provides runtime support for a Dart implementation of protobufs.
   protobuf: ^2.1.0
   # Extends the capabilities of Dart Streams and StreamControllers.
-  rxdart: ^0.27.4
+  rxdart: ^0.27.5
   # Provides parse, inspect, and manipulate stack traces
   stack_trace: ^1.10.0
   # Simple, fast generation of RFC4122 UUIDs.
@@ -52,17 +52,17 @@ dev_dependencies:
 
   # A generator for injectable library
   # Code generator for unions/pattern-matching/copy.
-  freezed: ^2.0.3+1
+  freezed: ^2.1.0+1
   # Automatically generates Hive TypeAdapters to store any class
   hive_generator: ^1.1.3
   # Injectable is a convenient code generator for get_it.
-  injectable_generator: ^1.5.3
+  injectable_generator: ^1.5.4
   # Collection of lint rules for Dart and Flutter projects
   lint: ^1.8.2
   # Library for mocks
   mockito: ^5.2.0
   # A full featured library for writing and running Dart tests across platforms.
-  test: ^1.21.2
+  test: ^1.21.4
 
 
 
