@@ -4,7 +4,7 @@ version: 2.1.2+1
 homepage: https://github.com/CyBear-Jinni/security_bear
 
 environment:
-  sdk: ^2.17.1
+  sdk: ^2.18.0
 
 dependencies:
   # Contains utility classes in the style of dart:async to work with asynchronous computations.
@@ -25,13 +25,13 @@ dependencies:
   # Convenient code generator for get_it
   injectable: ^1.5.3
   # Checks for an internet connection by opening a socket
-  internet_connection_checker: ^0.0.1+4
+  internet_connection_checker: ^1.0.0+1
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
   json_annotation: ^4.6.0
   # Dart Build System builders for handling JSON.
   json_serializable: ^6.3.1
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
-  kt_dart: ^0.10.0
+  kt_dart: ^1.0.0
   # Small, easy to use and extensible logger which prints beautiful logs.
   logger: ^1.1.0
   # Process run helpers for Linux/Win/Mac.
