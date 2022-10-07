@@ -18,12 +18,20 @@ The use of the software requires [CyBear Jinni App](https://github.com/CyBear-Ji
 
 # Social Media Links
 
-[<img src = "https://cdn.icon-icons.com/icons2/1099/PNG/512/1485482199-linkedin_78667.png" height = "80" >](https://www.linkedin.com/company/cybear-jinni)
+[<img align="left" alt="Twitter" width="45px" src="https://cdn.cdnlogo.com/logos/t/96/twitter-icon.svg" />](https://twitter.com/CyBearJinni)
 
-If you have any questions feel free to ask in our Discord server
+[<img align="left" alt="Instagram" width="45px" src="https://cdn.icon-icons.com/icons2/1753/PNG/512/iconfinder-social-media-applications-3instagram-4102579_113804.png" />](https://www.instagram.com/cybearjinni/?igshid=rfllj6qbv6l8) 
 
-[<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY)
 
+
+[<img align="left" alt="Linkedin" width="45px" src="https://cdn.icon-icons.com/icons2/1099/PNG/512/1485482199-linkedin_78667.png" />](https://www.linkedin.com/company/cybear-jinni) 
+
+
+[<img align="left" alt="Discord" width="45px" src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" />](https://discord.gg/mUXfwUY) 
+
+
+
+[<img alt="Github" width="45px" src="https://seeklogo.com/images/G/github-colored-logo-FDDF6EB1F0-seeklogo.com.png" />](https://github.com/CyBear-Jinni)  
 
 ## Disclaimers
 

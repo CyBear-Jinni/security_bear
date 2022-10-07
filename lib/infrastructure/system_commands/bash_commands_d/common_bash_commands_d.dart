@@ -1,6 +1,8 @@
 import 'dart:io';
 
-import 'package:security_bear_dart/core/system_commands_d/system_commands_base_class_d.dart';
+import 'package:security_bear/infrastructure/core/my_singleton.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_base_class_d.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
 
 class CommonBashCommandsD implements SystemCommandsBaseClassD {
   @override
@@ -74,5 +76,27 @@ class CommonBashCommandsD implements SystemCommandsBaseClassD {
   @override
   Future<String?> getDeviceConfiguration() {
     return getFileContent('/etc/cbjinni/deviceConfigs.txt');
+  }
+
+  @override
+  Future<String> getAllEtcReleaseFilesText() {
+    //TODO: add implementation, for now will return getDeviceHostName
+    return getDeviceHostName();
+  }
+
+  @override
+  Future<String> getLocalDbPath() async {
+    String localDbFolderPath;
+    final String? snapCommonEnvironmentVariablePath =
+        await SystemCommandsManager().getSnapCommonEnvironmentVariable();
+
+    if (snapCommonEnvironmentVariablePath == null) {
+      final String? currentUserName = await MySingleton.getCurrentUserName();
+      localDbFolderPath = '/home/$currentUserName/Documents/hive';
+    } else {
+      // /var/snap/cbj-hub/common/hive
+      localDbFolderPath = '$snapCommonEnvironmentVariablePath/hive';
+    }
+    return localDbFolderPath;
   }
 }

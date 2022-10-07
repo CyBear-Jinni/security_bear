@@ -3,8 +3,9 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:security_bear_dart/data_base/cbj_app/cbj_app_client.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/infrastructure/app_client/cbj_app_client.dart';
+import 'package:security_bear/utils.dart';
 
 ///  Network action class used for
 ///  controlling the program in the different network status
@@ -21,23 +22,24 @@ class NetworkActions {
   ///  This function starts the connection to the requested WiFi
   ///  if the internet connection is down
   Future<bool?> isConnectedToTheInternet() async {
-    print('Status is ${await isConnectedToInternet()}');
+    logger.i('Status is ${await isConnectedToInternet()}');
     bool processLocation = false;
     //  true = Started the process to connect to the admin WiFi,
     //  false = waiting for the internet to go down
 
-    Stream<InternetConnectionStatus> listener = returnStatusIfChanged();
+    final Stream<InternetConnectionStatus> listener = returnStatusIfChanged();
 
     listener.listen((InternetConnectionStatus status) async {
       final bool isConnected = connectionStatusToBool(status);
       if (isConnected) {
-        print('Connected to the Internet');
+        logger.i('Connected to the Internet');
         processLocation = false;
       } else {
-        print('Does not connected to the Internet');
+        logger.w('Does not connected to the Internet');
         processLocation = true;
         await Future.delayed(
-            const Duration(seconds: 15)); // Wait to check if internet is back
+          const Duration(seconds: 15),
+        ); // Wait to check if internet is back
 
         // Continue only if internet is till off after timeout
         if (!processLocation) {
@@ -50,7 +52,7 @@ class NetworkActions {
         //  TODO: Check in between if connection returned with processLocation var
         //  TODO: Connect to admin wi-fi
 
-        print('Finally');
+        logger.v('Finally');
       }
     });
   }
@@ -63,18 +65,24 @@ class NetworkActions {
       if (connectedWifiName != firstAndAdminNetworkDefault!.networkName &&
           (await getAvailableNetworksList())
               .contains(firstAndAdminNetworkDefault!.networkName)) {
-        print('Connecting to admin wi-fi');
+        logger.i(
+          'Connecting to admin wi-fi named '
+          '${firstAndAdminNetworkDefault!.networkName}',
+        );
         await connectToAdminWiFi(
-            ssid: firstAndAdminNetworkDefault!.networkName!,
-            pass: firstAndAdminNetworkDefault!.networkPass!);
+          ssid: firstAndAdminNetworkDefault!.networkName!,
+          pass: firstAndAdminNetworkDefault!.networkPass!,
+        );
       } else if (connectedWifiName ==
           firstAndAdminNetworkDefault!.networkName) {
         final String? wiFiDefaultGateway = await getDefaultGateway();
         final String myDeviceIP =
             await getCurrentDeviceIP(defaultGateway: wiFiDefaultGateway);
 
-        final bool? successful = await CBJAppClient.SendMyIPToServer(
-            wiFiDefaultGateway!, myDeviceIP);
+        final bool? successful = await CBJAppClient.sendMyIPToServer(
+          wiFiDefaultGateway!,
+          myDeviceIP,
+        );
       }
       // If the device is not connected to any WiFi
       // will try reconnecting to the last network
@@ -83,21 +91,26 @@ class NetworkActions {
           connectedWifiName != secondNetworkDefault!.networkName &&
               (await getAvailableNetworksList())
                   .contains(secondNetworkDefault!.networkName)) {
-        await connectToWiFi(secondNetworkDefault!.networkName!,
-            secondNetworkDefault!.networkPass!);
+        await connectToWiFi(
+          secondNetworkDefault!.networkName!,
+          secondNetworkDefault!.networkPass!,
+        );
       }
 
       await Future.delayed(
-          const Duration(seconds: 15)); // Wait to check if internet is back
+        const Duration(seconds: 15),
+      ); // Wait to check if internet is back
     }
   }
 
   ///  This function check if there is WiFi with the name that it got,
   ///  if true it will try to connect to it with the password that it got
-  Future<void> connectToAdminWiFi(
-      {String ssid = 'ho', String pass = '123'}) async {
+  Future<void> connectToAdminWiFi({
+    String ssid = 'ho',
+    String pass = '123',
+  }) async {
     final String connectingResult = await connectToWiFi(ssid, pass);
-    print('This is connection result: $connectingResult');
+    logger.i('This is connection result: $connectingResult');
     // TODO: fix if connectingResult is 'Error: Connection activation failed: (60) New connection activation was enqueued.'
     // Need to delete it with 'nmcli con delete <SSID>' and than can connect again
   }
@@ -110,7 +123,8 @@ class NetworkActions {
 
   Future<bool> isConnectedToInternet() async {
     return connectionStatusToBool(
-        await InternetConnectionChecker().connectionStatus);
+      await InternetConnectionChecker().connectionStatus,
+    );
   }
 
   ///  Convert connection status to true (connected) false (disconnected)
@@ -132,7 +146,7 @@ class NetworkActions {
       //  nmcli -t -f ssid dev wifi
       List<String> wifiResults = results.stdout.toString().split('\n');
       wifiResults = wifiResults.sublist(0, wifiResults.length - 1);
-      print(wifiResults.toString());
+      logger.i('Found the following WiFi networks ${wifiResults.toString()}');
       return wifiResults;
     });
   }
@@ -140,13 +154,19 @@ class NetworkActions {
   ///  Connect to the WiFi
   Future<String> connectToWiFi(String ssid, String pass) async {
 //    Not Working with snap from apt
-    return Process.run(
-            'nmcli', <String>['dev', 'wifi', 'connect', ssid, 'password', pass])
-        .then((
-            // nmcli dev wifi connect ssid password pass
-            //  sudo nmcli dev wifi connect ssid password pass
-            ProcessResult results) {
-      print('Conected successfully to: ' + results.stdout.toString());
+    return Process.run('nmcli', <String>[
+      'dev',
+      'wifi',
+      'connect',
+      ssid,
+      'password',
+      pass,
+    ]).then((
+      // nmcli dev wifi connect ssid password pass
+      //  sudo nmcli dev wifi connect ssid password pass
+      ProcessResult results,
+    ) {
+      logger.i('Connected successfully to: ${results.stdout}');
       return results.stdout.toString();
     });
     //    Can iwconfig also be used but
@@ -157,7 +177,7 @@ class NetworkActions {
   ///  if there is a connection than return network name
   Future<String> getConnectedNetworkName() async {
     return Process.run('iwgetid', <String>['-r']).then((ProcessResult results) {
-      print('Currently connected to: ' + results.stdout.toString());
+      logger.i('Currently connected to: ${results.stdout}');
       return results.stdout.toString().replaceAll('\n', '');
     });
 
@@ -186,9 +206,9 @@ class NetworkActions {
         final String defaultGatewayWithoutLastNumber =
             ipWithoutLastNumber(defaultGateway);
         final String currentIpHelper = currentIPList.firstWhere(
-            (String element) =>
-                ipWithoutLastNumber(element) ==
-                defaultGatewayWithoutLastNumber);
+          (String element) =>
+              ipWithoutLastNumber(element) == defaultGatewayWithoutLastNumber,
+        );
         currentIP = currentIpHelper;
         if (currentIpHelper == null) {
           currentIP = currentIPList[Random().nextInt(currentIPList.length)];
@@ -197,7 +217,7 @@ class NetworkActions {
         currentIP = currentIPList[Random().nextInt(currentIPList.length)];
       }
     }
-    print('Device IP is: $currentIP' != null ? currentIP : 'NULL');
+    logger.i('Device IP is: $currentIP' != null ? currentIP : 'NULL');
     return currentIP;
   }
 
@@ -208,16 +228,16 @@ class NetworkActions {
       return results.stdout.toString();
     });
 
-    List<String> gatewayLinesWithDefault = [];
+    final List<String> gatewayLinesWithDefault = [];
 
-    List<String> gatewayTemp = defaultGateway.split('\n');
+    final List<String> gatewayTemp = defaultGateway.split('\n');
     gatewayTemp.removeWhere((String element) => element == '');
 
     if (gatewayTemp.isEmpty) {
       return null;
     }
 
-    for (String gatewayLine in gatewayTemp) {
+    for (final String gatewayLine in gatewayTemp) {
       if (gatewayLine.contains('default')) {
         gatewayLinesWithDefault.add(gatewayLine);
       }
@@ -256,9 +276,8 @@ class NetworkActions {
       return null;
     }
 
-    String ip = iPWithLine.substring(ipIndex);
-    ip = ip.substring(0, ip.indexOf(' '));
-    return ip;
+    final String ip = iPWithLine.substring(ipIndex);
+    return ip.substring(0, ip.indexOf(' '));
   }
 
   String ipWithoutLastNumber(String ip) {

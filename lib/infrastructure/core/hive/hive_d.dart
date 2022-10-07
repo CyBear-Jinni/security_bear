@@ -1,9 +1,10 @@
 import 'package:hive/hive.dart';
-import 'package:security_bear_dart/core/hive/hiveAdapters/hive_network_list.dart';
-import 'package:security_bear_dart/core/hive/hive_store_d.dart';
-import 'package:security_bear_dart/core/my_singleton.dart';
-import 'package:security_bear_dart/core/system_commands_d/system_commands_manager_d.dart';
-import 'package:security_bear_dart/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
+import 'package:security_bear/infrastructure/core/hive/hiveAdapters/hive_network_list.dart';
+import 'package:security_bear/infrastructure/core/hive/hive_store_d.dart';
+import 'package:security_bear/infrastructure/core/my_singleton.dart';
+import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
+import 'package:security_bear/utils.dart';
 
 class HiveD {
   factory HiveD() {
@@ -26,26 +27,27 @@ class HiveD {
   Future<bool?> contractorAsync() async {
     try {
       if (finishedInitializing == null) {
-        final String snapCommonEnvironmentVariablePath =
+        final String? snapCommonEnvironmentVariablePath =
             await SystemCommandsManager().getSnapCommonEnvironmentVariable();
         if (snapCommonEnvironmentVariablePath == null) {
-          final String currentUserName = await MySingleton.getCurrentUserName();
+          final String? currentUserName =
+              await MySingleton.getCurrentUserName();
           hiveFolderPath = '/home/$currentUserName/Documents/hive';
         } else {
           hiveFolderPath = '$snapCommonEnvironmentVariablePath/hive';
         }
-        print('Path of hive: $hiveFolderPath');
-        Hive.init(hiveFolderPath!);
+        logger.i('Path of hive: $hiveFolderPath');
+        Hive.init(hiveFolderPath);
         //
         // Hive.openBox(
         //     smartDeviceBoxName); // TODO: check if need await, it creates error: HiveError: Cannot read, unknown typeId: 34
         Hive.registerAdapter(TokenAdapter());
-        Hive.registerAdapter(HiveNetwokListAdapter());
+        Hive.registerAdapter(HiveNetworkListAdapter());
 
         finishedInitializing = true;
       }
     } catch (error) {
-      print('error: $error');
+      logger.e('error: $error');
     }
     return finishedInitializing;
   }
@@ -61,7 +63,7 @@ class HiveD {
 
       return hiveNetworkList.networksInfoList;
     } catch (error) {
-      print('error: $error');
+      logger.e('error: $error');
     }
     return null;
   }
@@ -92,10 +94,10 @@ class HiveD {
         ..networksInfoList = networkList;
 
       await box.put(cellNetworkNamesBox, hiveNetworkList).catchError((a) {
-        print('Error is: $a');
+        logger.e('Error is: $a');
       });
     } catch (error) {
-      print('error: $error');
+      logger.e('error: $error');
     }
     return;
   }
