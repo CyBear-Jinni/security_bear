@@ -25,7 +25,9 @@ If you have any questions feel free to ask in our Discord server
 [<img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" height="80">](https://discord.gg/mUXfwUY)
 
 Feel free to take a look at our youtube channel!
-[<img src="[https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png)" height="80">](https://www.youtube.com/channel/UCHwTVuiz_mOq6tcc9lrZDOQ/videos)
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" height="80">](https://www.youtube.com/channel/UCHwTVuiz_mOq6tcc9lrZDOQ/videos)
+
 
 
 
