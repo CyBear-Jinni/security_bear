@@ -153,7 +153,9 @@ class NetworkActions {
 
   ///  Connect to the WiFi
   Future<String> connectToWiFi(String ssid, String pass) async {
-//    Not Working with snap from apt
+    // Not Working with snap from apt
+
+    // TODO check if can be replaced with commands from https://pub.dev/packages/nm/changelog
     return Process.run('nmcli', <String>[
       'dev',
       'wifi',

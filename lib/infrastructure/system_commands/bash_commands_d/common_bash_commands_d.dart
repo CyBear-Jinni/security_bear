@@ -7,6 +7,9 @@ import 'package:security_bear/infrastructure/system_commands/system_commands_man
 class CommonBashCommandsD implements SystemCommandsBaseClassD {
   @override
   Future<String> getCurrentUserName() async {
+    // TODO: check if this can be done using
+    // https://pub.dev/packages/flutter_gpiod or by using
+    // https://pub.dev/packages/linux_system_info
     final String whoami =
         await Process.run('whoami', <String>[]).then((ProcessResult result) {
       return result.stdout.toString();
