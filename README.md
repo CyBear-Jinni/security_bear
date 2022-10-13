@@ -20,8 +20,7 @@ The use of the software requires [CyBear Jinni App](https://github.com/CyBear-Ji
 
 [<img align="left" alt="Twitter" width="45px" src="https://cdn.cdnlogo.com/logos/t/96/twitter-icon.svg" />](https://twitter.com/CyBearJinni)
 
-[<img alt="Instagram" width="45px" src="https://cdn.icon-icons.com/icons2/1753/PNG/512/iconfinder-social-media-applications-3instagram-4102579_113804.png" />](https://www.instagram.com/cybearjinni/?igshid=rfllj6qbv6l8) 
-
+[<img align="left" alt="Instagram" width="45px" src="https://cdn.icon-icons.com/icons2/1753/PNG/512/iconfinder-social-media-applications-3instagram-4102579_113804.png" />](https://www.instagram.com/cybearjinni/?igshid=rfllj6qbv6l8) 
 
 [<img align="left" alt="Linkedin" width="45px" src="https://cdn.icon-icons.com/icons2/1099/PNG/512/1485482199-linkedin_78667.png" />](https://www.linkedin.com/company/cybear-jinni) 
 
