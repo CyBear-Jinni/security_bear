@@ -38,15 +38,22 @@ class MySingleton {
 }
 
 class FirebaseAccountInformationFlutter {
-  FirebaseAccountInformationFlutter(this.fireBaseProjectId, this.fireBaseApiKey,
-      this.userEmail, this.userPassword,);
+  FirebaseAccountInformationFlutter(
+    this.fireBaseProjectId,
+    this.fireBaseApiKey,
+    this.userEmail,
+    this.userPassword,
+  );
 
   String fireBaseProjectId;
   String fireBaseApiKey;
   String userEmail;
   String userPassword;
 
-  bool areAllValuesNotNull() {
-    return fireBaseApiKey != null;
+  bool areAllValuesNotEmpty() {
+    return fireBaseProjectId.isNotEmpty &&
+        fireBaseApiKey.isNotEmpty &&
+        userEmail.isNotEmpty &&
+        userPassword.isNotEmpty;
   }
 }

@@ -45,15 +45,13 @@ class CommonBashCommandsD implements SystemCommandsBaseClassD {
 
     blkid = blkid.substring(0, blkid.indexOf('\n'));
 
-    String uuid = blkid.substring(blkid.indexOf('UUID="') + 6);
-    uuid = uuid.substring(0, uuid.indexOf('"'));
-
-    return uuid;
+    final String uuid = blkid.substring(blkid.indexOf('UUID="') + 6);
+    return uuid.substring(0, uuid.indexOf('"'));
   }
 
   @override
   Future<String> getDeviceHostName() async {
-    String hostName = await Process.run('hostname', <String>['-s'])
+    final String hostName = await Process.run('hostname', <String>['-s'])
         .then((ProcessResult result) {
 //      String hostName = result.stdout;
 //      hostName = hostName.substring(

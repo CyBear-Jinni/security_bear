@@ -146,7 +146,7 @@ class NetworkActions {
       //  nmcli -t -f ssid dev wifi
       List<String> wifiResults = results.stdout.toString().split('\n');
       wifiResults = wifiResults.sublist(0, wifiResults.length - 1);
-      logger.i('Found the following WiFi networks ${wifiResults.toString()}');
+      logger.i('Found the following WiFi networks $wifiResults');
       return wifiResults;
     });
   }
@@ -212,14 +212,11 @@ class NetworkActions {
               ipWithoutLastNumber(element) == defaultGatewayWithoutLastNumber,
         );
         currentIP = currentIpHelper;
-        if (currentIpHelper == null) {
-          currentIP = currentIPList[Random().nextInt(currentIPList.length)];
-        }
       } else {
         currentIP = currentIPList[Random().nextInt(currentIPList.length)];
       }
     }
-    logger.i('Device IP is: $currentIP' != null ? currentIP : 'NULL');
+    logger.i('Device IP is: $currentIP');
     return currentIP;
   }
 
