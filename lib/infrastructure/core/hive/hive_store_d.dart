@@ -54,5 +54,5 @@ class TokenAdapter extends TypeAdapter<Token> {
   @override
   Token read(BinaryReader reader) =>
       Token.fromMap(reader.readMap().map<String, dynamic>(
-          (key, value) => MapEntry<String, dynamic>(key.toString(), value)));
+          (key, value) => MapEntry<String, dynamic>(key.toString(), value),),);
 }

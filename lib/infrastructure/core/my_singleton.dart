@@ -3,7 +3,7 @@ import 'package:security_bear/infrastructure/core/my_singleton_helper.dart';
 
 class MySingleton {
   factory MySingleton() {
-    return _singleton!;
+    return _singleton;
   }
 
   MySingleton._internal() {
@@ -12,7 +12,7 @@ class MySingleton {
     getCurrentUserName();
   }
 
-  static final MySingleton? _singleton = MySingleton._internal();
+  static final MySingleton _singleton = MySingleton._internal();
   static List<NetworkEntity>? smartWiFiList;
   static Future<String>? _deviceUid;
   static Future<String>? _currentUserName;
@@ -39,7 +39,7 @@ class MySingleton {
 
 class FirebaseAccountInformationFlutter {
   FirebaseAccountInformationFlutter(this.fireBaseProjectId, this.fireBaseApiKey,
-      this.userEmail, this.userPassword);
+      this.userEmail, this.userPassword,);
 
   String fireBaseProjectId;
   String fireBaseApiKey;
@@ -47,9 +47,6 @@ class FirebaseAccountInformationFlutter {
   String userPassword;
 
   bool areAllValuesNotNull() {
-    return fireBaseProjectId != null &&
-        fireBaseApiKey != null &&
-        userEmail != null &&
-        userPassword != null;
+    return fireBaseApiKey != null;
   }
 }
