@@ -10,14 +10,15 @@ import 'package:security_bear/utils.dart';
 ///  Network action class used for
 ///  controlling the program in the different network status
 class NetworkActions {
-  static NetworkEntity? firstAndAdminNetworkDefault;
-  static NetworkEntity? secondNetworkDefault;
-
-  NetworkActions(NetworkEntity firstAndAdminNetworkDefaultF,
-      NetworkEntity secondNetworkDefaultF) {
+  NetworkActions(
+    NetworkEntity firstAndAdminNetworkDefaultF,
+    NetworkEntity secondNetworkDefaultF,
+  ) {
     firstAndAdminNetworkDefault = firstAndAdminNetworkDefaultF;
     secondNetworkDefault = secondNetworkDefaultF;
   }
+  static NetworkEntity? firstAndAdminNetworkDefault;
+  static NetworkEntity? secondNetworkDefault;
 
   ///  This function starts the connection to the requested WiFi
   ///  if the internet connection is down
@@ -55,6 +56,7 @@ class NetworkActions {
         logger.v('Finally');
       }
     });
+    return null;
   }
 
   ///  Check to see if admin wifi exist and try to connect to it
@@ -79,15 +81,14 @@ class NetworkActions {
         final String myDeviceIP =
             await getCurrentDeviceIP(defaultGateway: wiFiDefaultGateway);
 
-        final bool? successful = await CBJAppClient.sendMyIPToServer(
+        await CBJAppClient.sendMyIPToServer(
           wiFiDefaultGateway!,
           myDeviceIP,
         );
       }
       // If the device is not connected to any WiFi
       // will try reconnecting to the last network
-      else if (connectedWifiName == null ||
-          connectedWifiName == '' ||
+      else if (connectedWifiName == '' ||
           connectedWifiName != secondNetworkDefault!.networkName &&
               (await getAvailableNetworksList())
                   .contains(secondNetworkDefault!.networkName)) {
@@ -135,7 +136,6 @@ class NetworkActions {
       case InternetConnectionStatus.disconnected:
         return false;
     }
-    return false;
   }
 
   ///  Return list of available networks to the device
@@ -146,14 +146,16 @@ class NetworkActions {
       //  nmcli -t -f ssid dev wifi
       List<String> wifiResults = results.stdout.toString().split('\n');
       wifiResults = wifiResults.sublist(0, wifiResults.length - 1);
-      logger.i('Found the following WiFi networks ${wifiResults.toString()}');
+      logger.i('Found the following WiFi networks $wifiResults');
       return wifiResults;
     });
   }
 
   ///  Connect to the WiFi
   Future<String> connectToWiFi(String ssid, String pass) async {
-//    Not Working with snap from apt
+    // Not Working with snap from apt
+
+    // TODO check if can be replaced with commands from https://pub.dev/packages/nm/changelog
     return Process.run('nmcli', <String>[
       'dev',
       'wifi',
@@ -210,14 +212,11 @@ class NetworkActions {
               ipWithoutLastNumber(element) == defaultGatewayWithoutLastNumber,
         );
         currentIP = currentIpHelper;
-        if (currentIpHelper == null) {
-          currentIP = currentIPList[Random().nextInt(currentIPList.length)];
-        }
       } else {
         currentIP = currentIPList[Random().nextInt(currentIPList.length)];
       }
     }
-    logger.i('Device IP is: $currentIP' != null ? currentIP : 'NULL');
+    logger.i('Device IP is: $currentIP');
     return currentIP;
   }
 
