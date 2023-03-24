@@ -5,7 +5,7 @@ import 'package:security_bear/infrastructure/system_commands/device_pin_manager.
 import 'package:security_bear/injection.dart';
 import 'package:security_bear/utils.dart';
 
-main(List<String> arguments) async {
+void main(List<String> arguments) async {
   configureInjection(Env.prod);
 
   if (arguments.isEmpty) {

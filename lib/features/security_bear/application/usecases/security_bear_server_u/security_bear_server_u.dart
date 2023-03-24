@@ -44,7 +44,7 @@ class SecurityBearServerU extends SecurityBearServiceBase {
 
   @override
   Future<SBCommendStatus> setFirebaseAccountAndSecurityBearSetup(
-      ServiceCall call, SBFirebaseAccountAndSecurityBearSetup request) async {
+      ServiceCall call, SBFirebaseAccountAndSecurityBearSetup request,) async {
     try {
       final SecurityBearSetup securityBearSetup = request.securityBearSetup;
       final WiFiInformation wiFiInformationFirstP =

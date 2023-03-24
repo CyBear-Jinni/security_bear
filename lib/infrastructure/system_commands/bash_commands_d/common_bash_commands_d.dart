@@ -7,11 +7,16 @@ import 'package:security_bear/infrastructure/system_commands/system_commands_man
 class CommonBashCommandsD implements SystemCommandsBaseClassD {
   @override
   Future<String> getCurrentUserName() async {
+    // TODO: check if this can be done using
+    // https://pub.dev/packages/flutter_gpiod or by using
+    // https://pub.dev/packages/linux_system_info
     final String whoami =
-        await Process.run('whoami', <String>[]).then((ProcessResult result) {
+        await Process.run('id', <String>['-nu']).then((ProcessResult result) {
+      // whoami is getting permission error inside the snap
+      // await Process.run('whoami', <String>[]).then((ProcessResult result) {
       return result.stdout.toString();
     });
-    return whoami.substring(0, whoami.indexOf('\n'));
+    return whoami.trim();
   }
 
   @override
@@ -40,15 +45,13 @@ class CommonBashCommandsD implements SystemCommandsBaseClassD {
 
     blkid = blkid.substring(0, blkid.indexOf('\n'));
 
-    String uuid = blkid.substring(blkid.indexOf('UUID="') + 6);
-    uuid = uuid.substring(0, uuid.indexOf('"'));
-
-    return uuid;
+    final String uuid = blkid.substring(blkid.indexOf('UUID="') + 6);
+    return uuid.substring(0, uuid.indexOf('"'));
   }
 
   @override
   Future<String> getDeviceHostName() async {
-    String hostName = await Process.run('hostname', <String>['-s'])
+    final String hostName = await Process.run('hostname', <String>['-s'])
         .then((ProcessResult result) {
 //      String hostName = result.stdout;
 //      hostName = hostName.substring(

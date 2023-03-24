@@ -28,6 +28,7 @@ class HiveRepository extends ILocalDbRepository {
     loadFromDb();
   }
 
+  @override
   Future<void> loadFromDb() async {
     (await getRemotePipesDnsName()).fold(
         (l) =>

@@ -1,4 +1,4 @@
-import 'permissions.dart';
+import 'package:security_bear/infrastructure/core/permissions/permissions.dart';
 
 ///  These class manage the permissions of user, both user permissions and
 ///  user ability to give permissions
