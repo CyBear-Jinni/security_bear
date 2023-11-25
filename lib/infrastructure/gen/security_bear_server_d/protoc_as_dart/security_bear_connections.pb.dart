@@ -1,37 +1,42 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: security_bear_connections.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class SecurityBearSetup extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearSetup', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOM<WiFiInformation>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wiFiFirstPriority', protoName: 'wiFiFirstPriority', subBuilder: WiFiInformation.create)
-    ..aOM<WiFiInformation>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wiFiSecondPriority', protoName: 'wiFiSecondPriority', subBuilder: WiFiInformation.create)
-    ..hasRequiredFields = false
-  ;
-
-  SecurityBearSetup._() : super();
   factory SecurityBearSetup({
     WiFiInformation? wiFiFirstPriority,
     WiFiInformation? wiFiSecondPriority,
   }) {
-    final _result = create();
+    final $result = create();
     if (wiFiFirstPriority != null) {
-      _result.wiFiFirstPriority = wiFiFirstPriority;
+      $result.wiFiFirstPriority = wiFiFirstPriority;
     }
     if (wiFiSecondPriority != null) {
-      _result.wiFiSecondPriority = wiFiSecondPriority;
+      $result.wiFiSecondPriority = wiFiSecondPriority;
     }
-    return _result;
+    return $result;
   }
+  SecurityBearSetup._() : super();
   factory SecurityBearSetup.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SecurityBearSetup.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SecurityBearSetup', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOM<WiFiInformation>(3, _omitFieldNames ? '' : 'wiFiFirstPriority', protoName: 'wiFiFirstPriority', subBuilder: WiFiInformation.create)
+    ..aOM<WiFiInformation>(4, _omitFieldNames ? '' : 'wiFiSecondPriority', protoName: 'wiFiSecondPriority', subBuilder: WiFiInformation.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -41,8 +46,10 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SecurityBearSetup copyWith(void Function(SecurityBearSetup) updates) => super.copyWith((message) => updates(message as SecurityBearSetup)) as SecurityBearSetup; // ignore: deprecated_member_use
+  SecurityBearSetup copyWith(void Function(SecurityBearSetup) updates) => super.copyWith((message) => updates(message as SecurityBearSetup)) as SecurityBearSetup;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SecurityBearSetup create() => SecurityBearSetup._();
   SecurityBearSetup createEmptyInstance() => create();
@@ -75,28 +82,29 @@ class SecurityBearSetup extends $pb.GeneratedMessage {
 }
 
 class WiFiInformation extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'WiFiInformation', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wiFiName', protoName: 'wiFiName')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wiFiPassword', protoName: 'wiFiPassword')
-    ..hasRequiredFields = false
-  ;
-
-  WiFiInformation._() : super();
   factory WiFiInformation({
     $core.String? wiFiName,
     $core.String? wiFiPassword,
   }) {
-    final _result = create();
+    final $result = create();
     if (wiFiName != null) {
-      _result.wiFiName = wiFiName;
+      $result.wiFiName = wiFiName;
     }
     if (wiFiPassword != null) {
-      _result.wiFiPassword = wiFiPassword;
+      $result.wiFiPassword = wiFiPassword;
     }
-    return _result;
+    return $result;
   }
+  WiFiInformation._() : super();
   factory WiFiInformation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory WiFiInformation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'WiFiInformation', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'wiFiName', protoName: 'wiFiName')
+    ..aOS(2, _omitFieldNames ? '' : 'wiFiPassword', protoName: 'wiFiPassword')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -106,8 +114,10 @@ class WiFiInformation extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  WiFiInformation copyWith(void Function(WiFiInformation) updates) => super.copyWith((message) => updates(message as WiFiInformation)) as WiFiInformation; // ignore: deprecated_member_use
+  WiFiInformation copyWith(void Function(WiFiInformation) updates) => super.copyWith((message) => updates(message as WiFiInformation)) as WiFiInformation;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WiFiInformation create() => WiFiInformation._();
   WiFiInformation createEmptyInstance() => create();
@@ -135,24 +145,26 @@ class WiFiInformation extends $pb.GeneratedMessage {
   void clearWiFiPassword() => clearField(2);
 }
 
+/// Did the commend succeeded (true) or not (false)
 class SBCommendStatus extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SBCommendStatus', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..hasRequiredFields = false
-  ;
-
-  SBCommendStatus._() : super();
   factory SBCommendStatus({
     $core.bool? success,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
-    return _result;
+    return $result;
   }
+  SBCommendStatus._() : super();
   factory SBCommendStatus.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SBCommendStatus.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SBCommendStatus', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOB(5, _omitFieldNames ? '' : 'success')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -162,8 +174,10 @@ class SBCommendStatus extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SBCommendStatus copyWith(void Function(SBCommendStatus) updates) => super.copyWith((message) => updates(message as SBCommendStatus)) as SBCommendStatus; // ignore: deprecated_member_use
+  SBCommendStatus copyWith(void Function(SBCommendStatus) updates) => super.copyWith((message) => updates(message as SBCommendStatus)) as SBCommendStatus;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SBCommendStatus create() => SBCommendStatus._();
   SBCommendStatus createEmptyInstance() => create();
@@ -183,28 +197,29 @@ class SBCommendStatus extends $pb.GeneratedMessage {
 }
 
 class SBFirebaseAccountAndSecurityBearSetup extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SBFirebaseAccountAndSecurityBearSetup', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOM<SBFirebaseAccountInformation>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sBFirebaseAccountInformation', protoName: 'sBFirebaseAccountInformation', subBuilder: SBFirebaseAccountInformation.create)
-    ..aOM<SecurityBearSetup>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'securityBearSetup', protoName: 'securityBearSetup', subBuilder: SecurityBearSetup.create)
-    ..hasRequiredFields = false
-  ;
-
-  SBFirebaseAccountAndSecurityBearSetup._() : super();
   factory SBFirebaseAccountAndSecurityBearSetup({
     SBFirebaseAccountInformation? sBFirebaseAccountInformation,
     SecurityBearSetup? securityBearSetup,
   }) {
-    final _result = create();
+    final $result = create();
     if (sBFirebaseAccountInformation != null) {
-      _result.sBFirebaseAccountInformation = sBFirebaseAccountInformation;
+      $result.sBFirebaseAccountInformation = sBFirebaseAccountInformation;
     }
     if (securityBearSetup != null) {
-      _result.securityBearSetup = securityBearSetup;
+      $result.securityBearSetup = securityBearSetup;
     }
-    return _result;
+    return $result;
   }
+  SBFirebaseAccountAndSecurityBearSetup._() : super();
   factory SBFirebaseAccountAndSecurityBearSetup.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SBFirebaseAccountAndSecurityBearSetup.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SBFirebaseAccountAndSecurityBearSetup', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOM<SBFirebaseAccountInformation>(10, _omitFieldNames ? '' : 'sBFirebaseAccountInformation', protoName: 'sBFirebaseAccountInformation', subBuilder: SBFirebaseAccountInformation.create)
+    ..aOM<SecurityBearSetup>(11, _omitFieldNames ? '' : 'securityBearSetup', protoName: 'securityBearSetup', subBuilder: SecurityBearSetup.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -214,8 +229,10 @@ class SBFirebaseAccountAndSecurityBearSetup extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SBFirebaseAccountAndSecurityBearSetup copyWith(void Function(SBFirebaseAccountAndSecurityBearSetup) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountAndSecurityBearSetup)) as SBFirebaseAccountAndSecurityBearSetup; // ignore: deprecated_member_use
+  SBFirebaseAccountAndSecurityBearSetup copyWith(void Function(SBFirebaseAccountAndSecurityBearSetup) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountAndSecurityBearSetup)) as SBFirebaseAccountAndSecurityBearSetup;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SBFirebaseAccountAndSecurityBearSetup create() => SBFirebaseAccountAndSecurityBearSetup._();
   SBFirebaseAccountAndSecurityBearSetup createEmptyInstance() => create();
@@ -248,38 +265,39 @@ class SBFirebaseAccountAndSecurityBearSetup extends $pb.GeneratedMessage {
 }
 
 class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SBFirebaseAccountInformation', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fireBaseProjectId', protoName: 'fireBaseProjectId')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fireBaseApiKey', protoName: 'fireBaseApiKey')
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userEmail', protoName: 'userEmail')
-    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userPassword', protoName: 'userPassword')
-    ..hasRequiredFields = false
-  ;
-
-  SBFirebaseAccountInformation._() : super();
   factory SBFirebaseAccountInformation({
     $core.String? fireBaseProjectId,
     $core.String? fireBaseApiKey,
     $core.String? userEmail,
     $core.String? userPassword,
   }) {
-    final _result = create();
+    final $result = create();
     if (fireBaseProjectId != null) {
-      _result.fireBaseProjectId = fireBaseProjectId;
+      $result.fireBaseProjectId = fireBaseProjectId;
     }
     if (fireBaseApiKey != null) {
-      _result.fireBaseApiKey = fireBaseApiKey;
+      $result.fireBaseApiKey = fireBaseApiKey;
     }
     if (userEmail != null) {
-      _result.userEmail = userEmail;
+      $result.userEmail = userEmail;
     }
     if (userPassword != null) {
-      _result.userPassword = userPassword;
+      $result.userPassword = userPassword;
     }
-    return _result;
+    return $result;
   }
+  SBFirebaseAccountInformation._() : super();
   factory SBFirebaseAccountInformation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SBFirebaseAccountInformation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SBFirebaseAccountInformation', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOS(6, _omitFieldNames ? '' : 'fireBaseProjectId', protoName: 'fireBaseProjectId')
+    ..aOS(7, _omitFieldNames ? '' : 'fireBaseApiKey', protoName: 'fireBaseApiKey')
+    ..aOS(8, _omitFieldNames ? '' : 'userEmail', protoName: 'userEmail')
+    ..aOS(9, _omitFieldNames ? '' : 'userPassword', protoName: 'userPassword')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -289,8 +307,10 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SBFirebaseAccountInformation copyWith(void Function(SBFirebaseAccountInformation) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountInformation)) as SBFirebaseAccountInformation; // ignore: deprecated_member_use
+  SBFirebaseAccountInformation copyWith(void Function(SBFirebaseAccountInformation) updates) => super.copyWith((message) => updates(message as SBFirebaseAccountInformation)) as SBFirebaseAccountInformation;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SBFirebaseAccountInformation create() => SBFirebaseAccountInformation._();
   SBFirebaseAccountInformation createEmptyInstance() => create();
@@ -337,28 +357,29 @@ class SBFirebaseAccountInformation extends $pb.GeneratedMessage {
 }
 
 class CompSecurityBearInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompSecurityBearInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOM<CbjSecurityBearIno>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cbjInfo', protoName: 'cbjInfo', subBuilder: CbjSecurityBearIno.create)
-    ..aOM<CompSecurityBearSpecs>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompSecurityBearSpecs.create)
-    ..hasRequiredFields = false
-  ;
-
-  CompSecurityBearInfo._() : super();
   factory CompSecurityBearInfo({
     CbjSecurityBearIno? cbjInfo,
     CompSecurityBearSpecs? compSpecs,
   }) {
-    final _result = create();
+    final $result = create();
     if (cbjInfo != null) {
-      _result.cbjInfo = cbjInfo;
+      $result.cbjInfo = cbjInfo;
     }
     if (compSpecs != null) {
-      _result.compSpecs = compSpecs;
+      $result.compSpecs = compSpecs;
     }
-    return _result;
+    return $result;
   }
+  CompSecurityBearInfo._() : super();
   factory CompSecurityBearInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CompSecurityBearInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompSecurityBearInfo', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOM<CbjSecurityBearIno>(12, _omitFieldNames ? '' : 'cbjInfo', protoName: 'cbjInfo', subBuilder: CbjSecurityBearIno.create)
+    ..aOM<CompSecurityBearSpecs>(13, _omitFieldNames ? '' : 'compSpecs', protoName: 'compSpecs', subBuilder: CompSecurityBearSpecs.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -368,8 +389,10 @@ class CompSecurityBearInfo extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CompSecurityBearInfo copyWith(void Function(CompSecurityBearInfo) updates) => super.copyWith((message) => updates(message as CompSecurityBearInfo)) as CompSecurityBearInfo; // ignore: deprecated_member_use
+  CompSecurityBearInfo copyWith(void Function(CompSecurityBearInfo) updates) => super.copyWith((message) => updates(message as CompSecurityBearInfo)) as CompSecurityBearInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompSecurityBearInfo create() => CompSecurityBearInfo._();
   CompSecurityBearInfo createEmptyInstance() => create();
@@ -402,16 +425,6 @@ class CompSecurityBearInfo extends $pb.GeneratedMessage {
 }
 
 class CbjSecurityBearIno extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CbjSecurityBearIno', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceName', protoName: 'deviceName')
-    ..aOS(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
-    ..aOS(16, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'protoLastGenDate', protoName: 'protoLastGenDate')
-    ..aOS(23, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pubspecYamlBuildNumber', protoName: 'pubspecYamlBuildNumber')
-    ..aOS(24, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dartSdkVersion', protoName: 'dartSdkVersion')
-    ..hasRequiredFields = false
-  ;
-
-  CbjSecurityBearIno._() : super();
   factory CbjSecurityBearIno({
     $core.String? deviceName,
     $core.String? pubspecYamlVersion,
@@ -419,26 +432,37 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
     $core.String? pubspecYamlBuildNumber,
     $core.String? dartSdkVersion,
   }) {
-    final _result = create();
+    final $result = create();
     if (deviceName != null) {
-      _result.deviceName = deviceName;
+      $result.deviceName = deviceName;
     }
     if (pubspecYamlVersion != null) {
-      _result.pubspecYamlVersion = pubspecYamlVersion;
+      $result.pubspecYamlVersion = pubspecYamlVersion;
     }
     if (protoLastGenDate != null) {
-      _result.protoLastGenDate = protoLastGenDate;
+      $result.protoLastGenDate = protoLastGenDate;
     }
     if (pubspecYamlBuildNumber != null) {
-      _result.pubspecYamlBuildNumber = pubspecYamlBuildNumber;
+      $result.pubspecYamlBuildNumber = pubspecYamlBuildNumber;
     }
     if (dartSdkVersion != null) {
-      _result.dartSdkVersion = dartSdkVersion;
+      $result.dartSdkVersion = dartSdkVersion;
     }
-    return _result;
+    return $result;
   }
+  CbjSecurityBearIno._() : super();
   factory CbjSecurityBearIno.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CbjSecurityBearIno.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CbjSecurityBearIno', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOS(14, _omitFieldNames ? '' : 'deviceName', protoName: 'deviceName')
+    ..aOS(15, _omitFieldNames ? '' : 'pubspecYamlVersion', protoName: 'pubspecYamlVersion')
+    ..aOS(16, _omitFieldNames ? '' : 'protoLastGenDate', protoName: 'protoLastGenDate')
+    ..aOS(23, _omitFieldNames ? '' : 'pubspecYamlBuildNumber', protoName: 'pubspecYamlBuildNumber')
+    ..aOS(24, _omitFieldNames ? '' : 'dartSdkVersion', protoName: 'dartSdkVersion')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -448,8 +472,10 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CbjSecurityBearIno copyWith(void Function(CbjSecurityBearIno) updates) => super.copyWith((message) => updates(message as CbjSecurityBearIno)) as CbjSecurityBearIno; // ignore: deprecated_member_use
+  CbjSecurityBearIno copyWith(void Function(CbjSecurityBearIno) updates) => super.copyWith((message) => updates(message as CbjSecurityBearIno)) as CbjSecurityBearIno;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CbjSecurityBearIno create() => CbjSecurityBearIno._();
   CbjSecurityBearIno createEmptyInstance() => create();
@@ -505,17 +531,6 @@ class CbjSecurityBearIno extends $pb.GeneratedMessage {
 }
 
 class CompSecurityBearSpecs extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CompSecurityBearSpecs', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
-    ..aOS(17, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compId', protoName: 'compId')
-    ..aOS(18, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compUuid', protoName: 'compUuid')
-    ..aOS(19, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compOs', protoName: 'compOs')
-    ..aOS(20, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compModel', protoName: 'compModel')
-    ..aOS(21, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compType', protoName: 'compType')
-    ..aOS(22, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'compIp', protoName: 'compIp')
-    ..hasRequiredFields = false
-  ;
-
-  CompSecurityBearSpecs._() : super();
   factory CompSecurityBearSpecs({
     $core.String? compId,
     $core.String? compUuid,
@@ -524,29 +539,41 @@ class CompSecurityBearSpecs extends $pb.GeneratedMessage {
     $core.String? compType,
     $core.String? compIp,
   }) {
-    final _result = create();
+    final $result = create();
     if (compId != null) {
-      _result.compId = compId;
+      $result.compId = compId;
     }
     if (compUuid != null) {
-      _result.compUuid = compUuid;
+      $result.compUuid = compUuid;
     }
     if (compOs != null) {
-      _result.compOs = compOs;
+      $result.compOs = compOs;
     }
     if (compModel != null) {
-      _result.compModel = compModel;
+      $result.compModel = compModel;
     }
     if (compType != null) {
-      _result.compType = compType;
+      $result.compType = compType;
     }
     if (compIp != null) {
-      _result.compIp = compIp;
+      $result.compIp = compIp;
     }
-    return _result;
+    return $result;
   }
+  CompSecurityBearSpecs._() : super();
   factory CompSecurityBearSpecs.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CompSecurityBearSpecs.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CompSecurityBearSpecs', package: const $pb.PackageName(_omitMessageNames ? '' : 'SecurityBearConnections'), createEmptyInstance: create)
+    ..aOS(17, _omitFieldNames ? '' : 'compId', protoName: 'compId')
+    ..aOS(18, _omitFieldNames ? '' : 'compUuid', protoName: 'compUuid')
+    ..aOS(19, _omitFieldNames ? '' : 'compOs', protoName: 'compOs')
+    ..aOS(20, _omitFieldNames ? '' : 'compModel', protoName: 'compModel')
+    ..aOS(21, _omitFieldNames ? '' : 'compType', protoName: 'compType')
+    ..aOS(22, _omitFieldNames ? '' : 'compIp', protoName: 'compIp')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -556,8 +583,10 @@ class CompSecurityBearSpecs extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CompSecurityBearSpecs copyWith(void Function(CompSecurityBearSpecs) updates) => super.copyWith((message) => updates(message as CompSecurityBearSpecs)) as CompSecurityBearSpecs; // ignore: deprecated_member_use
+  CompSecurityBearSpecs copyWith(void Function(CompSecurityBearSpecs) updates) => super.copyWith((message) => updates(message as CompSecurityBearSpecs)) as CompSecurityBearSpecs;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CompSecurityBearSpecs create() => CompSecurityBearSpecs._();
   CompSecurityBearSpecs createEmptyInstance() => create();
@@ -621,3 +650,6 @@ class CompSecurityBearSpecs extends $pb.GeneratedMessage {
   void clearCompIp() => clearField(22);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
