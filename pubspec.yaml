@@ -29,7 +29,7 @@ dependencies:
   # Defines the annotations used by json_serializable to create code for JSON serialization and deserialization.
   json_annotation: ^4.8.1
   # Dart Build System builders for handling JSON.
-  json_serializable: ^6.6.0
+  json_serializable: ^6.7.1
   # Port of Kotlin's Kotlin Standard library for Dart/Flutter projects
   kt_dart: ^1.1.0
   # Small, easy to use and extensible logger which prints beautiful logs.
@@ -63,6 +63,3 @@ dev_dependencies:
   mockito: ^5.4.3
   # A full featured library for writing and running Dart tests across platforms.
   test: ^1.24.9
-
-
-
