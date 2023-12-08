@@ -44,7 +44,7 @@ class SecurityBearManagerU {
 
   ///  This function will create the server in case there is connection
   Future<void> createServer() async {
-    final server = Server([SecurityBearServerU()]);
+    final server = Server.create(services: [SecurityBearServerU()]);
     if (currentEnv == Env.prod) {
       securityBearServerPort = 50052;
     } else {

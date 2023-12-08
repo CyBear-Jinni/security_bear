@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:grpc/src/server/call.dart';
+import 'package:grpc/service_api.dart';
 import 'package:security_bear/features/security_bear/application/usecases/network_actions/network_actions.dart';
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 import 'package:security_bear/infrastructure/gen/security_bear_server_d/proto_gen_date.dart';

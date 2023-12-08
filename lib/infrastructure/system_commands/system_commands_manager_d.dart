@@ -46,7 +46,7 @@ class SystemCommandsManager {
     return systemCommandsBaseClassD!.getAllEtcReleaseFilesText();
   }
 
-  Future<String?> getFileContent(fileFullPath) {
+  Future<String?> getFileContent(String fileFullPath) {
     return systemCommandsBaseClassD!.getFileContent(fileFullPath);
   }
 

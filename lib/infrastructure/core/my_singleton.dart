@@ -26,15 +26,9 @@ class MySingleton {
   static Future<String?> getLocalDbPath() =>
       _localDbPath ??= MySingletonHelper.getLocalDbPath();
 
-  static void setNetworksList(List<NetworkEntity> smartNetworksListVal) {
-    smartWiFiList = smartNetworksListVal;
-  }
-
   static void addToNetworksList(NetworkEntity smartNetworksVal) {
     smartWiFiList!.add(smartNetworksVal);
   }
-
-  static List<NetworkEntity>? getSmartNetworksList() => smartWiFiList;
 }
 
 class FirebaseAccountInformationFlutter {

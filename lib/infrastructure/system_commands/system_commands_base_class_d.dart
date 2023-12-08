@@ -9,7 +9,7 @@ abstract class SystemCommandsBaseClassD {
 
   Future<String> getAllEtcReleaseFilesText();
 
-  Future<String?> getFileContent(fileFullPath);
+  Future<String?> getFileContent(String fileFullPath);
 
   Future<String?> getDeviceConfiguration();
 
