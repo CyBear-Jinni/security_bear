@@ -42,8 +42,8 @@ class DevicePinListManager extends DevicePinListManagerAbstract {
       );
       deviceHostName =
           deviceHostName.substring(deviceHostName.indexOf('=') + 1);
-      logger.v('Now');
-      logger.v(deviceHostName);
+      logger.t('Now');
+      logger.t(deviceHostName);
       deviceHostName = deviceHostName.replaceAll('-', '').replaceAll(' ', '');
 
       physicalDeviceType =
@@ -62,7 +62,7 @@ class DevicePinListManager extends DevicePinListManagerAbstract {
         physicalDeviceType = PhysicalDeviceType.raspberryPi;
       }
 
-      logger.v('phys type is $physicalDeviceType');
+      logger.t('phys type is $physicalDeviceType');
     } catch (e) {
       logger.w('Board type does not exist');
     }

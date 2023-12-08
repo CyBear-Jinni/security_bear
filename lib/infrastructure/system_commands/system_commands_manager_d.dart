@@ -13,10 +13,10 @@ class SystemCommandsManager {
   /// commands
   SystemCommandsManager() {
     if (Platform.isLinux) {
-      logger.v('Linux platform detected in SystemCommandsManager');
+      logger.t('Linux platform detected in SystemCommandsManager');
       systemCommandsBaseClassD = CommonBashCommandsD();
     } else if (Platform.isWindows) {
-      logger.v('Windows platform detected in SystemCommandsManager');
+      logger.t('Windows platform detected in SystemCommandsManager');
       systemCommandsBaseClassD = CommonBatchCommandsD();
     } else if (Platform.isMacOS) {
       logger.w('Mac os is currently not supported in SystemCommandsManager');

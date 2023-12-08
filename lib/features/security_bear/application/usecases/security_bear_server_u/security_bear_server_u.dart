@@ -14,7 +14,7 @@ class SecurityBearServerU extends SecurityBearServiceBase {
     SecurityBearSetup request,
   ) async {
     try {
-      logger.v('Set WiFi information');
+      logger.t('Set WiFi information');
 
       final WiFiInformation wiFiInformationFirstP = request.wiFiFirstPriority;
       final WiFiInformation wiFiInformationSecondP = request.wiFiSecondPriority;

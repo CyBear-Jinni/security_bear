@@ -53,7 +53,7 @@ class NetworkActions {
         //  TODO: Check in between if connection returned with processLocation var
         //  TODO: Connect to admin wi-fi
 
-        logger.v('Finally');
+        logger.t('Finally');
       }
     });
     return null;
