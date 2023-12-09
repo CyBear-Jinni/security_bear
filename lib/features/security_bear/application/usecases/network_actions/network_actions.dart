@@ -28,9 +28,7 @@ class NetworkActions {
     //  true = Started the process to connect to the admin WiFi,
     //  false = waiting for the internet to go down
 
-    final Stream<InternetConnectionStatus> listener = returnStatusIfChanged();
-
-    listener.listen((InternetConnectionStatus status) async {
+    statusChanges().listen((InternetConnectionStatus status) async {
       final bool isConnected = connectionStatusToBool(status);
       if (isConnected) {
         logger.i('Connected to the Internet');
@@ -118,7 +116,7 @@ class NetworkActions {
 
   ///  This function return the new value of the internet connection status
   ///  only if it changed from last time
-  Stream<InternetConnectionStatus> returnStatusIfChanged() {
+  Stream<InternetConnectionStatus> statusChanges() {
     return InternetConnectionChecker().onStatusChange;
   }
 
