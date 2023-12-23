@@ -1,7 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 import 'package:security_bear/infrastructure/core/hive/hiveAdapters/hive_network_list.dart';
-import 'package:security_bear/infrastructure/core/hive/hive_store_d.dart';
 import 'package:security_bear/infrastructure/core/my_singleton.dart';
 import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:security_bear/utils.dart';
@@ -41,7 +40,6 @@ class HiveD {
         //
         // Hive.openBox(
         //     smartDeviceBoxName); // TODO: check if need await, it creates error: HiveError: Cannot read, unknown typeId: 34
-        Hive.registerAdapter(TokenAdapter());
         Hive.registerAdapter(HiveNetworkListAdapter());
 
         finishedInitializing = true;
