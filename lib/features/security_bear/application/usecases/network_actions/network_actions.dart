@@ -214,7 +214,7 @@ class NetworkActions {
         currentIP = currentIPList[Random().nextInt(currentIPList.length)];
       }
     }
-    logger.i('Device IP is: $currentIP');
+    logger.i('Entity IP is: $currentIP');
     return currentIP;
   }
 
