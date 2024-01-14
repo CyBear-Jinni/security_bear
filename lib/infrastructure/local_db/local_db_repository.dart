@@ -14,7 +14,7 @@ class HiveRepository extends ILocalDbRepository {
     asyncConstractor();
   }
 
-  Future<void> asyncConstractor() async {
+  Future asyncConstractor() async {
     String? localDbPath = await MySingleton.getLocalDbPath();
 
     if (localDbPath == null) {
@@ -29,7 +29,7 @@ class HiveRepository extends ILocalDbRepository {
   }
 
   @override
-  Future<void> loadFromDb() async {
+  Future loadFromDb() async {
     (await getRemotePipesDnsName()).fold(
         (l) =>
             logger.w('No Remote Pipes Dns name was found in the local storage'),

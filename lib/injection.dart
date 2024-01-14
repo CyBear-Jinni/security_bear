@@ -9,7 +9,7 @@ final getIt = GetIt.instance;
 late String currentEnv;
 
 @injectableInit
-Future<void> configureInjection(String environment) async {
+Future configureInjection(String environment) async {
   currentEnv = environment;
   logger.i('Current environment name: $currentEnv');
   getIt.init(environment: environment);

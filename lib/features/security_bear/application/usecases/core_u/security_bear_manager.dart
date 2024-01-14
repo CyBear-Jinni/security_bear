@@ -23,7 +23,7 @@ class SecurityBearManagerU {
     networkPass: 'CyBearJinni',
   );
 
-  Future<void> securityBearMainAsync() async {
+  Future securityBearMainAsync() async {
     logger.i('Entity local IP: ${await getIps()}');
 
     createServer();
@@ -34,7 +34,7 @@ class SecurityBearManagerU {
 
   ///  This function starts the object
   ///  to manege the state of the device network connection
-  Future<void> manegeNetworkConnection() async {
+  Future manegeNetworkConnection() async {
     final NetworkActions networkActions =
         NetworkActions(firstAndAdminNetworkDefault, secondNetworkDefault);
 
@@ -45,7 +45,7 @@ class SecurityBearManagerU {
   void connectToDatabase() {}
 
   ///  This function will create the server in case there is connection
-  Future<void> createServer() async {
+  Future createServer() async {
     final server = Server.create(services: [SecurityBearServerU()]);
     if (currentEnv == Env.prod) {
       securityBearServerPort = 50052;

@@ -6,7 +6,7 @@ abstract class ILocalDbRepository {
   String hubEntityBoxName = 'hubEntityBox';
 
   /// Will load all the local database content into the program
-  Future<void> loadFromDb();
+  Future loadFromDb();
 
   Future<Either<LocalDbFailures, Unit>> saveRemotePipes({
     required String remotePipesDomainName,

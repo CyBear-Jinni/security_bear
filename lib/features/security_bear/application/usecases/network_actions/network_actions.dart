@@ -58,7 +58,7 @@ class NetworkActions {
   }
 
   ///  Check to see if admin wifi exist and try to connect to it
-  Future<void> connectToAdminWhenExist() async {
+  Future connectToAdminWhenExist() async {
     String connectedWifiName;
     while (true) {
       connectedWifiName = await getConnectedNetworkName();
@@ -104,7 +104,7 @@ class NetworkActions {
 
   ///  This function check if there is WiFi with the name that it got,
   ///  if true it will try to connect to it with the password that it got
-  Future<void> connectToAdminWiFi({
+  Future connectToAdminWiFi({
     String ssid = 'ho',
     String pass = '123',
   }) async {

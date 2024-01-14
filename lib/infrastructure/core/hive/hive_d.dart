@@ -82,7 +82,7 @@ class HiveD {
   //   return null;
   // }
 
-  Future<void> saveAllNetworks(List<NetworkEntity> networkList) async {
+  Future saveAllNetworks(List<NetworkEntity> networkList) async {
     try {
       await contractorAsync();
 
@@ -100,7 +100,7 @@ class HiveD {
     return;
   }
 
-  // Future<void> saveListOfDatabaseInformation(
+  // Future saveListOfDatabaseInformation(
   //     Map<String, String> firebaseAccountsInformationMap) async {
   //   try {
   //     await contractorAsync();
