@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:security_bear/infrastructure/core/shared_variables.dart';
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:security_bear/infrastructure/system_commands/bash_commands_d/bash_commands_for_raspberry_pi_d.dart';
 import 'package:security_bear/infrastructure/system_commands/bash_commands_d/common_bash_commands_d.dart';
 import 'package:security_bear/infrastructure/system_commands/batch_commands_d/common_batch_commands_d.dart';
@@ -23,7 +23,8 @@ class SystemCommandsManager {
       throw 'Mac os is currently not supported';
     } else {
       logger.w(
-          '${Platform.operatingSystem} os is not supported in SystemCommandsManager',);
+        '${Platform.operatingSystem} os is not supported in SystemCommandsManager',
+      );
       throw '${Platform.operatingSystem} os is not supported';
     }
   }
@@ -63,14 +64,16 @@ class SystemCommandsManager {
   }
 
   Future<String> getSnapLocationEnvironmentVariable() {
-    return Future.value(SharedVariables.getSnapLocationEnvironmentVariable());
+    return Future.value(SharedVariables().getSnapLocationEnvironmentVariable());
   }
 
   Future<String?> getSnapCommonEnvironmentVariable() {
-    return Future.value(SharedVariables.getSnapCommonEnvironmentVariable());
+    return Future.value(SharedVariables().getSnapCommonEnvironmentVariable());
   }
 
   Future<String> getSnapUserCommonEnvironmentVariable() {
-    return Future.value(SharedVariables.getSnapUserCommonEnvironmentVariable());
+    return Future.value(
+      SharedVariables().getSnapUserCommonEnvironmentVariable(),
+    );
   }
 }
