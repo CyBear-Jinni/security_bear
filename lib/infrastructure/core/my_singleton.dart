@@ -1,5 +1,5 @@
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
-import 'package:security_bear/infrastructure/core/my_singleton_helper.dart';
 
 class MySingleton {
   factory MySingleton() {
@@ -18,13 +18,14 @@ class MySingleton {
   static Future<String>? _currentUserName;
   static Future<String>? _localDbPath;
 
-  static Future<String> getUuid() => _deviceUid ??= MySingletonHelper.getUuid();
+  static Future<String> getUuid() =>
+      _deviceUid ??= SystemCommandsBaseClassD.instance.getUuidOfCurrentDevice();
 
-  static Future<String?> getCurrentUserName() =>
-      _currentUserName ??= MySingletonHelper.getCurrentUserName();
+  static Future<String?> getCurrentUserName() => _currentUserName ??=
+      SystemCommandsBaseClassD.instance.getCurrentUserName();
 
   static Future<String?> getLocalDbPath() =>
-      _localDbPath ??= MySingletonHelper.getLocalDbPath();
+      _localDbPath ??= SystemCommandsBaseClassD.instance.getLocalDbPath();
 
   static void addToNetworksList(NetworkEntity smartNetworksVal) {
     smartWiFiList!.add(smartNetworksVal);

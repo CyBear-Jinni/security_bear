@@ -1,8 +1,8 @@
+import 'package:cbj_integrations_controller/integrations_controller.dart';
 import 'package:hive/hive.dart';
 import 'package:security_bear/features/security_bear/infrastructure/core/network_entity.dart';
 import 'package:security_bear/infrastructure/core/hive/hiveAdapters/hive_network_list.dart';
 import 'package:security_bear/infrastructure/core/my_singleton.dart';
-import 'package:security_bear/infrastructure/system_commands/system_commands_manager_d.dart';
 import 'package:security_bear/utils.dart';
 
 class HiveD {
@@ -27,7 +27,8 @@ class HiveD {
     try {
       if (finishedInitializing == null) {
         final String? snapCommonEnvironmentVariablePath =
-            await SystemCommandsManager().getSnapCommonEnvironmentVariable();
+            await SystemCommandsBaseClassD.instance
+                .getSnapCommonEnvironmentVariable();
         if (snapCommonEnvironmentVariablePath == null) {
           final String? currentUserName =
               await MySingleton.getCurrentUserName();
