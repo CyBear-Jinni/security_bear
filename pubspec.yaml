@@ -45,8 +45,6 @@ dependencies:
   rxdart: ^0.27.7
   # Provides parse, inspect, and manipulate stack traces
   stack_trace: ^1.11.1
-  # Simple, fast generation of RFC4122 UUIDs.
-  uuid: ^4.2.1
 
 
 dev_dependencies:

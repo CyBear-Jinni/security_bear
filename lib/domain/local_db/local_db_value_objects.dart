@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:security_bear/domain/local_db/local_db_errors.dart';
 import 'package:security_bear/domain/local_db/local_db_failures.dart';
 import 'package:security_bear/domain/local_db/local_db_validators.dart';
+// ignore: depend_on_referenced_packages
 import 'package:uuid/uuid.dart';
 
 @immutable
